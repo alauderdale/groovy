@@ -5,4 +5,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users
+  devise_for :shots
+  resources :shots
+  match ':controller(/:action(/:id))(.:format)'
 end

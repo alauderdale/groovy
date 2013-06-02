@@ -1,0 +1,27 @@
+%h1
+  Shots
+%table.listing.table{summary: "Shots List"}
+  %tr.header
+    %th
+      title
+    %th
+      description
+    %th
+      id
+    %th
+      actions
+  %tr
+  -@shots.each do |c|
+    %tr
+      %td
+        = c.title
+      %td
+        = c.description
+      %td
+        = c.id
+      %td.actions
+        = link_to("Delete", {:action => 'delete', :id => c.id}, :class => 'action delete')
+
+%br
+= link_to("New Shot", {:action => 'new'}, :class => 'action new')
+

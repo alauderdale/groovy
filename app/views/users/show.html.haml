@@ -1,5 +1,37 @@
 %h3 User
 %p
-  User: #{@user.name}
+  User: 
+  = @user.name
 %p
-  Email: #{@user.email if @user.email}
+  Email: 
+  = @user.email if @user.email
+%h3
+  Shots by
+  = @user.name
+%table.table{:summary => "User Shots"}
+  %tr
+    %th
+      Title
+    %th
+      Description
+    %th
+      Shot User Id
+    %th
+      User Id
+  -@user_shots.each do |c|
+    %tr
+      %td
+        = link_to c.title, c
+      %td
+        = c.description
+      %td
+        = c.user_id
+      %td
+        = @user.id
+  -if @user_shots.count == 0
+    %tr
+      %td
+        No shots!
+      %td
+      %td
+      %td
