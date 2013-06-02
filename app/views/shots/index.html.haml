@@ -7,18 +7,18 @@
     %th
       description
     %th
-      id
+      created by
     %th
       actions
   %tr
   -@shots.each do |c|
     %tr
       %td
-        = c.title
+        = link_to c.title, c
       %td
         = c.description
       %td
-        = c.id
+        = c.user.name
       %td.actions
         = link_to("Delete", {:action => 'delete', :id => c.id}, :class => 'action delete')
 
