@@ -15,6 +15,7 @@ class ShotsController < ApplicationController
 
   def create
     @shot = Shot.new(params[:shot])
+    @shot.user_id = current_user.id
     if @shot.save
     #If save succeeds return to list action
       redirect_to shots_path, :notice => "Shot Created"

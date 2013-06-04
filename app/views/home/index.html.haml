@@ -1,6 +1,13 @@
-%h3 Home
-- @users.each do |user|
+/ %h3 Home
+/ - @users.each do |user|
+/   %p
+/     User: #{link_to user.name, user}
+/   %p
+/     = user.id
+.hero-unit
+  %h1.margin-bottom
+    Welcomt to g-roovy
   %p
-    User: #{link_to user.name, user}
-  %p
-    = user.id
+    This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+  %a.btn.btn-large.btn-primary{:href=>"#{new_user_registration_path}"}
+    Sign Up

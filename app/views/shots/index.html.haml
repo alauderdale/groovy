@@ -1,27 +1,11 @@
-%h1
-  Shots
-%table.listing.table{summary: "Shots List"}
-  %tr.header
-    %th
-      title
-    %th
-      description
-    %th
-      created by
-    %th
-      actions
-  %tr
-  -@shots.each do |c|
-    %tr
-      %td
-        = link_to c.title, c
-      %td
-        = c.description
-      %td
-        = c.user.name
-      %td.actions
-        = link_to("Delete", {:action => 'delete', :id => c.id}, :class => 'action delete')
+-@shots.in_groups_of(4,false) do |shots|
+  .row
+    -shots.each do |c| 
+      .span3.margin-bottom
+        = link_to (c) do
+          .well.no-margin-bottom
+            = image_tag 'guitar.png'
+        %h6
+          = link_to c.user.name, c.user
 
-%br
-= link_to("New Shot", {:action => 'new'}, :class => 'action new')
 

@@ -1,8 +1,30 @@
-= link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
+/ = link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
 %h3
   = @shot.title
+%p.muted
+  by:
+  = link_to (@shot.user) do
+    = @shot.user.name
 %p
   = @shot.description
-%p
-  by:
-  = @shot.user.name
+-if @shot.user.id == current_user.id
+  / Button to trigger modal
+  %a.btn{"data-toggle" => "modal", :href => "#delete", :role => "button"} 
+    Delete
+
+/ Modal
+#delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel 
+      Delete Shot
+  .modal-body
+    %p
+      Are you sure you want to permanently delete this shot?
+    %p
+      Shot Name:
+      = @shot.title
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+    = form_for(:shot, :url => {:action => 'destroy_shot', :id => @shot.id}, :html => {:class => "display-inline"}) do |f|
+      = submit_tag("Delete Shot", :class=>"btn btn-primary")
