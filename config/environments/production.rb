@@ -87,8 +87,8 @@ Rails3BootstrapDeviseCancan::Application.configure do
     :bucket => ENV['groovy-files'],
     :access_key_id => ENV['AKIAIECRO4CITSLWPS3Q'],
     :secret_access_key => ENV['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']
+    }
   }
-}
 
 
 
