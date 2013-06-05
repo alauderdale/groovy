@@ -79,6 +79,17 @@ Rails3BootstrapDeviseCancan::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+  #image uploading
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['groovy-files'],
+    :access_key_id => ENV['AKIAIECRO4CITSLWPS3Q'],
+    :secret_access_key => ENV['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']
+  }
+}
+
 
 
   # Log the query plan for queries taking more than this (works
