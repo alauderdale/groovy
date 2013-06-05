@@ -12,6 +12,18 @@
  *= require_tree .
 */
 
+@import"bourbon";
+
+//nav
+
+.nav{
+  .avatar{
+    width: 15px;
+    height:auto;
+    @include border-radius(3px);
+  }
+}
+
 .content {
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */

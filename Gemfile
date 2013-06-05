@@ -26,3 +26,4 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 gem 'haml'
 gem 'thin'
 gem 'bourbon', '1.3.0'
+gem "paperclip", "~> 3.0"
