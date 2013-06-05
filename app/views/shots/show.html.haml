@@ -7,7 +7,10 @@
     = @shot.user.name
 %p
   = @shot.description
-%embed{:height=>'50', :width=>'100', :src=>"#{@shot.audio.url}"}
+/ %embed{:height=>'50', :width=>'100', :src=>"#{@shot.audio.url}"}
+%audio{:controls => ""}
+  %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
+    Your browser does not support the audio element.
 %br
 -if @shot.user.id == current_user.id
   / Button to trigger modal
