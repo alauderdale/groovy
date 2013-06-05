@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605045526) do
+ActiveRecord::Schema.define(:version => 20130605052217) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(:version => 20130605045526) do
     t.string   "title"
     t.string   "description"
     t.string   "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   create_table "users", :force => true do |t|

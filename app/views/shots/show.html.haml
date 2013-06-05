@@ -7,6 +7,8 @@
     = @shot.user.name
 %p
   = @shot.description
+%embed{:height=>'50', :width=>'100', :src=>"#{@shot.audio.url}"}
+%br
 -if @shot.user.id == current_user.id
   / Button to trigger modal
   %a.btn{"data-toggle" => "modal", :href => "#delete", :role => "button"} 
