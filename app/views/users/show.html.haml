@@ -5,22 +5,22 @@
 %p
   Email: 
   = @user.email if @user.email
-%h3
-  Shots by
-  = @user.name
-%table.table{:summary => "User Shots"}
-  %tr
-    %th
-      Title
-    %th
-      Description
-    %th
-      Shot User Id
-    %th
-      User Id
-  -@user.shots.each do |c|
-    %tr
-      %td
-        = c.title
-      %td
-        = c.description
+/ %h3
+/   Shots by
+/   = @user.name
+/ %table.table{:summary => "User Shots"}
+/   %tr
+/     %th
+/       Title
+/     %th
+/       Description
+/     %th
+/       Shot User Id
+/     %th
+/       User Id
+/   -@user.shots.each do |c|
+/     %tr
+/       %td
+/         = c.title
+/       %td
+/         = c.description
