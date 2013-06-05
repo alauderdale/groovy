@@ -18,9 +18,9 @@
       Shot User Id
     %th
       User Id
-  -@user_shots.each do |c|
+  -@user.shots.each do |c|
     %tr
       %td
-        = link_to c.title, c
+        = c.title
       %td
         = c.description
