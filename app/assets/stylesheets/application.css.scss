@@ -16,12 +16,11 @@
 
 //nav
 
-.nav{
-  .avatar{
-    width: 15px;
-    height:auto;
-    @include border-radius(3px);
-  }
+
+.avatar-sm{
+  width: 15px;
+  height:auto;
+  @include border-radius(3px);
 }
 
 .content {
