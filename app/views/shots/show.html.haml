@@ -1,6 +1,4 @@
 / = link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
-:javascript
-  (function(doc){var addEvent='addEventListener',type='gesturestart',qsa='querySelectorAll',scales=[1,1],meta=qsa in doc?doc[qsa]('meta[name=viewport]'):[];function fix(){meta.content='width=device-width,minimum-scale='+scales[0]+',maximum-scale='+scales[1];doc.removeEventListener(type,fix,true);}if((meta=meta[meta.length-1])&&addEvent in doc){fix();scales=[.25,1.6];doc[addEvent](type,fix,true);}}(document));
 %h3
   = @shot.title
 %p.muted
@@ -9,15 +7,10 @@
     = @shot.user.name
 %p
   = @shot.description
-
-%audio{:controls => "", :preload=>"auto"}
-  %source{:src => "#{@shot.audio.url}" }
-  = javascript_include_tag "audioplayer"
-  :javascript
-    $( function() { 
-      $( 'audio' ).audioPlayer(
-      );
-    });
+/ %embed{:height=>'50', :width=>'100', :src=>"#{@shot.audio.url}"}
+%audio{:controls => ""}
+  %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
+    Your browser does not support the audio element.
 %br
 -if @shot.user.id == current_user.id
   / Button to trigger modal
