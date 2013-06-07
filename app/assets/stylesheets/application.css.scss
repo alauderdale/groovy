@@ -20,6 +20,11 @@
   height:auto;
   @include border-radius(3px);
 }
+.avatar-lg{
+  width: 60px;
+  height:auto;
+  @include border-radius(3px);
+}
 
 .content {
   padding: 20px;

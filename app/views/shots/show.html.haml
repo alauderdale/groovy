@@ -1,21 +1,28 @@
 / = link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
-%h3
-  = @shot.title
-%p.muted
-  by:
-  = link_to (@shot.user) do
-    = @shot.user.name
-%p
-  = @shot.description
-/ %embed{:height=>'50', :width=>'100', :src=>"#{@shot.audio.url}"}
-%audio{:controls => ""}
-  %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
-    Your browser does not support the audio element.
-%br
--if @shot.user.id == current_user.id
-  / Button to trigger modal
-  %a.btn{"data-toggle" => "modal", :href => "#delete", :role => "button"} 
-    Delete
+.row
+  .span6
+    .media.margin-bottom
+      %a.pull-left{:href => "#"}
+        %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
+      .media-body.margin-bottom
+        %h4.media-heading 
+          = @shot.title
+        %p.muted
+          by:
+          = link_to (@shot.user) do
+            = @shot.user.name
+          = @shot.created_at.strftime("%B %d, %Y")
+      .clearfix
+      %p
+        = @shot.description
+      %audio{:controls => ""}
+        %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
+          Your browser does not support the audio element.
+  .span6
+    -if @shot.user.id == current_user.id
+      / Button to trigger modal
+      %a.btn{"data-toggle" => "modal", :href => "#delete", :role => "button"} 
+        Delete
 
 / Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
