@@ -1,6 +1,6 @@
 / = link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
 .row
-  .span5
+  .span6
     .media.margin-bottom
       = link_to (@shot.user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
@@ -16,7 +16,7 @@
       %p
         = @shot.description
       = render 'shot_audio'
-  .span7
+  .span6
     -if @shot.user.id == current_user.id
       / Button to trigger modal
       %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
