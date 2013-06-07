@@ -1,8 +1,8 @@
 / = link_to("<< Back to Shots", {:action => 'index'}, :class => 'back-link')
 .row
-  .span6
+  .span5
     .media.margin-bottom
-      %a.pull-left{:href => "#"}
+      = link_to (@shot.user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
       .media-body.margin-bottom
         %h4.media-heading 
@@ -15,14 +15,17 @@
       .clearfix
       %p
         = @shot.description
-      %audio{:controls => ""}
-        %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
-          Your browser does not support the audio element.
-  .span6
+      = render 'shot_audio'
+  .span7
     -if @shot.user.id == current_user.id
       / Button to trigger modal
-      %a.btn{"data-toggle" => "modal", :href => "#delete", :role => "button"} 
+      %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
+        %i.icon-trash 
         Delete
+      %br
+      = link_to({:action => 'edit', :id => @shot.id})do
+        %i.icon-cog
+        Edit
 
 / Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
