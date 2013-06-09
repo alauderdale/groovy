@@ -1,3 +1,39 @@
-%audio{:controls => ""}
-  %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
-    Your browser does not support the audio element.
+/ %audio{:controls => ""}
+/   %source{:src => "#{@shot.audio.url}", :type => "audio/ogg"}
+/     Your browser does not support the audio element.
+
+
+
+:javascript
+  $(document).ready(function(){
+
+    var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+    {
+      oga: "#{@shot.audio.url}"
+    }, {
+      cssSelectorAncestor: "#cp_container_1",
+      swfPath: "js",
+      wmode: "window",
+      keyEnabled: true
+    });
+
+  });
+
+#jquery_jplayer_1.cp-jplayer
+/ The container for the interface can go where you want to display it. Show and hide it as you need.
+#cp_container_1.cp-container
+  .cp-buffer-holder
+    / .cp-gt50 only needed when buffer is > than 50%
+    .cp-buffer-1
+    .cp-buffer-2
+  .cp-progress-holder
+    / .cp-gt50 only needed when progress is > than 50%
+    .cp-progress-1
+    .cp-progress-2
+  .cp-circle-control
+  %ul.cp-controls
+    %li
+      %a.cp-play{:tabindex => "1"} play
+    %li
+      %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
+    / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
