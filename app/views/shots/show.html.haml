@@ -32,6 +32,22 @@
       %p
         = @shot.description
       = render 'shot_audio'
+
+    - @shot.comments.each do |c|
+      = c.user.name
+      says:
+      %br
+      = h(c.body)
+      %br
+
+    = form_for(@comment) do |f| 
+      .field
+        = f.hidden_field :shot_id, :value=> @shot.id
+      .field
+        = f.label 'body'
+        = f.text_area :body, :rows => 5
+      .form-buttons
+        = submit_tag("Comment", :class=>"btn btn-primary") 
   .span6
     -if @shot.user.id == current_user.id
       / Button to trigger modal

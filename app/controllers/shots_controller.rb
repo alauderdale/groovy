@@ -6,6 +6,7 @@ class ShotsController < ApplicationController
 
   def show
     @shot = Shot.find(params[:id])
+    @comment = Comment.new( :shot_id => @shot.id )
   end
 
   def new
