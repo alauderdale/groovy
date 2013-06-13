@@ -6,6 +6,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   devise_for :users
   resources :users
   devise_for :shots
-  resources :shots
+  resources :shots do
+    resources :comments
+  end
   match ':controller(/:action(/:id))(.:format)'
 end

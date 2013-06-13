@@ -14,9 +14,16 @@
 
 @import"bourbon";
 
+$baseline: 20px;
+
 //nav
 .avatar-sm{
   width: 15px;
+  height:auto;
+  @include border-radius(3px);
+}
+.avatar-med{
+  width: 40px;
   height:auto;
   @include border-radius(3px);
 }
@@ -27,12 +34,16 @@
 }
 
 .content {
-  padding: 20px;
-  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  padding: 18px;
+  margin: 0 -18px; /* negative indent the amount of the padding to maintain the grid system */
 }
 
 
-//display
+//helpers
+
+.left{
+  float: left;
+}
 
 .display-inline{
   display:inline;
@@ -42,5 +53,5 @@
   margin-bottom:0!important;
 }
 .margin-bottom{
-  margin-bottom:24px!important;
+  margin-bottom:$baseline!important;
 }

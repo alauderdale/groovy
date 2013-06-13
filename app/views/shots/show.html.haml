@@ -12,11 +12,8 @@
       wmode: "window",
       keyEnabled: true
     });
-
-  });
-  
 .row
-  .span6
+  .span12
     .media.margin-bottom
       = link_to (@shot.user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
@@ -29,9 +26,27 @@
             = @shot.user.name
           = @shot.created_at.strftime("%B %d, %Y")
       .clearfix
-      %p
-        = @shot.description
-      = render 'shot_audio'
+  .span6
+    = render 'shot_audio'
+    %p
+      = @shot.description
+    .comments
+      .page-header
+        %h5
+          -if @shot.comments.count == 1
+            = @shot.comments.count
+            Response
+          -else
+            = @shot.comments.count
+            Responses
+      = render :partial => @shot.comments
+      .page-header
+        %h5
+          Add a new comment
+      = form_for([@shot, @shot.comments.build]) do |f|
+        .field
+          = f.text_area :body, :rows => 5
+        = submit_tag("Post comment", :class=>"btn-primary btn") 
   .span6
     -if @shot.user.id == current_user.id
       / Button to trigger modal
@@ -43,7 +58,7 @@
         %i.icon-cog
         Edit
 
-/ Modal
+/ Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
