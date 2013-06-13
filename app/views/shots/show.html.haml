@@ -33,12 +33,8 @@
     .comments
       .page-header
         %h5
-          -if @shot.comments.count == 1
-            = @shot.comments.count
-            Response
-          -else
-            = @shot.comments.count
-            Responses
+          = @shot.comments.count
+          Responses
       = render :partial => @shot.comments
       .page-header
         %h5
