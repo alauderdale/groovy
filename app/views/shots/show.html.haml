@@ -16,7 +16,7 @@
   });
   
 .row
-  .span6
+  .span12
     .media.margin-bottom
       = link_to (@shot.user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
@@ -29,16 +29,37 @@
             = @shot.user.name
           = @shot.created_at.strftime("%B %d, %Y")
       .clearfix
-      %p
-        = @shot.description
-      = render 'shot_audio'
+  .span6
+    = render 'shot_audio'
+    %p
+      = @shot.description
+    .comments
+      .page-header
+        %h5
+          -if @shot.comments.count == 1
+            = @shot.comments.count
+            Response
+          -else
+            = @shot.comments.count
+            Responses
+      - @shot.comments.each do |c|
+        .media.margin-bottom
+          = link_to (@shot.user), :class => "pull-left" do 
+            %img.media-object.avatar-med{:src => "#{@shot.user.avatar.url(:thumb)}"}
+          .media-body.margin-bottome
+            %p.no-margin-bottom
+              %strong
+                = link_to (@shot.user) do
+                  = @shot.user.name
+            %p.no-margin-bottom
+              = h(c.body)
+            %p.muted
+              %small
+                = c.created_at.strftime("%B %d, %Y")
+                -if c.user_id.to_i == current_user.id.to_i
+                  = link_to(:comment, {:action => 'destroy', :id => c.id}) do
+                    Delete
 
-    - @shot.comments.each do |c|
-      = c.user.name
-      says:
-      %br
-      = h(c.body)
-      %br
 
     = form_for(@comment) do |f| 
       .field
@@ -47,7 +68,7 @@
         = f.label 'body'
         = f.text_area :body, :rows => 5
       .form-buttons
-        = submit_tag("Comment", :class=>"btn btn-primary") 
+        = submit_tag("Post comment", :class=>"btn btn-primary") 
   .span6
     -if @shot.user.id == current_user.id
       / Button to trigger modal

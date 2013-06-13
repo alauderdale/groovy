@@ -7,7 +7,12 @@ class CommentsController < ApplicationController
       redirect_to @comment.shot, :notice => "Comment Created"
     #if form fails, redisplay form so user can fix problems
     else
-      redirect_to shots_path, :notice => "No"
+      redirect_to @comment.shot, :notice => "Something went wrong! Please retry"
     end
+  end
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to @comment.shot, :notice => "Comment Deleted"
   end
 end
