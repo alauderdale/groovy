@@ -6,6 +6,7 @@ class ShotsController < ApplicationController
 
   def show
     @shot = Shot.find(params[:id])
+    @comment = Comment.new( :shot => @shot )
   end
 
   def new
@@ -50,5 +51,4 @@ class ShotsController < ApplicationController
     shot.destroy
     redirect_to shots_path, :notice => "Shot Deleted"
   end
-
 end
