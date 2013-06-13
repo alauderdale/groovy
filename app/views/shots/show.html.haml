@@ -12,9 +12,6 @@
       wmode: "window",
       keyEnabled: true
     });
-
-  });
-  
 .row
   .span12
     .media.margin-bottom
@@ -42,33 +39,14 @@
           -else
             = @shot.comments.count
             Responses
-      - @shot.comments.each do |c|
-        .media.margin-bottom
-          = link_to (@shot.user), :class => "pull-left" do 
-            %img.media-object.avatar-med{:src => "#{@shot.user.avatar.url(:thumb)}"}
-          .media-body.margin-bottome
-            %p.no-margin-bottom
-              %strong
-                = link_to (@shot.user) do
-                  = @shot.user.name
-            %p.no-margin-bottom
-              = h(c.body)
-            %p.muted
-              %small
-                = c.created_at.strftime("%B %d, %Y")
-                -if c.user_id.to_i == current_user.id.to_i
-                  = link_to(:comment, {:action => 'destroy', :id => c.id}) do
-                    Delete
-
-
-    = form_for(@comment) do |f| 
-      .field
-        = f.hidden_field :shot_id, :value=> @shot.id
-      .field
-        = f.label 'body'
-        = f.text_area :body, :rows => 5
-      .form-buttons
-        = submit_tag("Post comment", :class=>"btn btn-primary") 
+      = render :partial => @shot.comments
+      .page-header
+        %h5
+          Add a new comment
+      = form_for([@shot, @shot.comments.build]) do |f|
+        .field
+          = f.text_area :body, :rows => 5
+        = submit_tag("Post comment", :class=>"btn-primary btn") 
   .span6
     -if @shot.user.id == current_user.id
       / Button to trigger modal
@@ -80,7 +58,7 @@
         %i.icon-cog
         Edit
 
-/ Modal
+/ Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
