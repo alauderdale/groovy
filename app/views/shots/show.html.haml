@@ -31,6 +31,10 @@
     %p
       = @shot.description
     .comments
+      .page-header
+        %h5
+          = @shot.comments.count
+          Responses
       = render :partial => @shot.comments
       .page-header
         %h5
