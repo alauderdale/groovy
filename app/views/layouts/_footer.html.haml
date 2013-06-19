@@ -11,5 +11,17 @@
 	%g:plusone.btn.btn-danger{:annotation => "inline"} Google +1
 
 .btn
-	%a.fb-like{"data-action" => "like", "data-colorscheme" => "light", "data-layout" => "standard", "data-send" => "false", "data-show-faces" => "false", "data-width" => "450"} Like us
-	%i.icon-thumbs-up 
+	%a.fb-like{"data-action" => "like", "data-colorscheme" => "light", "data-layout" => "standard", "data-send" => "false", "data-show-faces" => "false", "data-width" => "450", :href => "http://developers.facebook.com/docs/reference/plugins/like"} Like us
+	%i.icon-thumbs-up
+
+.navbar.navbar-fixed-bottom.navbar
+	%nav.navbar-inner
+		.container
+			%span.icon-bar 		
+			Copyright © 
+			= Time.now.year 
+			Groovy Productions
+			.btn
+				About Us
+			.btn
+				Contact Us
