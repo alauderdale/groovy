@@ -1,12 +1,3 @@
 -@shots.in_groups_of(4,false) do |shots|
   .row
-    -shots.each do |c| 
-      .span3.margin-bottom
-        = link_to (c) do
-          .well.no-margin-bottom
-            = image_tag 'guitar.png'
-        %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
-        %h6.display-inline
-          = link_to c.user.name, c.user
-
-
+    = render :partial => 'shared/shot_thumb', :locals => {:shots => @shots}

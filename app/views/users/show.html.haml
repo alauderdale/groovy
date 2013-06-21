@@ -1,26 +1,8 @@
-%h3 User
-%p
-  User: 
+%h3 
+  Shots By
   = @user.name
-%p
-  Email: 
-  = @user.email if @user.email
-/ %h3
-/   Shots by
-/   = @user.name
-/ %table.table{:summary => "User Shots"}
-/   %tr
-/     %th
-/       Title
-/     %th
-/       Description
-/     %th
-/       Shot User Id
-/     %th
-/       User Id
-/   -@user.shots.each do |c|
-/     %tr
-/       %td
-/         = c.title
-/       %td
-/         = c.description
+  
+-@user.shots.in_groups_of(4,false) do |shots|
+  .row
+    = render :partial => 'shared/shot_thumb', :locals => {:shots => @user.shots}
+
