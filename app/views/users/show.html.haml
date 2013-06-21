@@ -14,7 +14,6 @@
   %h5
     Shots
   
--@user.shots.in_groups_of(4,false) do |shots|
-  .row
-    = render :partial => 'shared/shot_thumb', :locals => {:shots => @user.shots}
+
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @user.shots}
 
