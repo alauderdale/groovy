@@ -3,7 +3,7 @@ class CreateShots < ActiveRecord::Migration
     create_table :shots do |t|
       t.string :title
       t.string :description
-      t.string :user_id
+      t.integer :user_id
       t.timestamps
     end
   end
