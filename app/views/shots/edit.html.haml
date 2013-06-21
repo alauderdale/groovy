@@ -16,6 +16,10 @@
       .field
         = f.label 'description'
         = f.text_area :description, :rows => 5
+      .field
+        %label
+          Tags
+        = f.text_field :tag_list
       .form-buttons
         = submit_tag("Update Groove", :class=>"btn btn-primary")
         = link_to("Cancel", {:action => 'show'}, :class => 'btn')
