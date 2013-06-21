@@ -31,16 +31,18 @@
     %p
       = @shot.description
     .comments
-      .page-header
-        - if @shot.comments.count == 1
-          %h5 
-            = @shot.comments.count
-            Response
-        - else
-          %h5
-            = @shot.comments.count
-            Responses
-      = render :partial => @shot.comments
+      - if @shot.comments.count == 0
+      - else
+        .page-header
+          - if @shot.comments.count == 1
+            %h5 
+              = @shot.comments.count
+              Response
+          - else
+            %h5
+              = @shot.comments.count
+              Responses
+        = render :partial => @shot.comments
       .page-header
         %h5
           Add a new comment
@@ -49,6 +51,13 @@
           = f.text_area :body, :rows => 5
         = submit_tag("Post comment", :class=>"btn-primary btn") 
   .span6
+    %p
+      Tags:
+      - if @shot.tags.count == 0
+        %span.muted
+          no tags
+      - else
+        = raw @shot.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
     -if @shot.user.id == current_user.id
       / Button to trigger modal
       %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}

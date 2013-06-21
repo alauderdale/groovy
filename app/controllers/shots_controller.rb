@@ -1,7 +1,12 @@
 class ShotsController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @shots = Shot.order()
+    if params[:tag]
+      @shots = Shot.tagged_with(params[:tag])
+      @tag = params[:tag]
+    else
+      @shots = Shot.order()
+    end
   end
 
   def show

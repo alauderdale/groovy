@@ -1,6 +1,18 @@
-%h3 
-  Shots By
-  = @user.name
+.row
+  .span12
+    .media
+      = link_to (@user), :class => "pull-left" do 
+        %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
+      .media-body.margin-bottom
+        %h4.media-heading 
+          = @user.name
+        %p.muted
+          = @user.email
+      .clearfix
+
+.page-header
+  %h5
+    Shots
   
 -@user.shots.in_groups_of(4,false) do |shots|
   .row

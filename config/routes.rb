@@ -2,6 +2,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   authenticated :user do
     root :to => 'shots#index'
   end
+  get 'tags/:tag', to: 'shots#index', as: :tag
   root :to => "home#index"
   devise_for :users
   resources :users

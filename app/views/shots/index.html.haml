@@ -1,3 +1,7 @@
+-if params[:tag]
+  %h3
+    Tags /
+    = @tag
 -@shots.in_groups_of(4,false) do |shots|
   .row
     = render :partial => 'shared/shot_thumb', :locals => {:shots => @shots}
