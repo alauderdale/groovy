@@ -1,26 +1,19 @@
-%h3 User
-%p
-  User: 
-  = @user.name
-%p
-  Email: 
-  = @user.email if @user.email
-/ %h3
-/   Shots by
-/   = @user.name
-/ %table.table{:summary => "User Shots"}
-/   %tr
-/     %th
-/       Title
-/     %th
-/       Description
-/     %th
-/       Shot User Id
-/     %th
-/       User Id
-/   -@user.shots.each do |c|
-/     %tr
-/       %td
-/         = c.title
-/       %td
-/         = c.description
+.row
+  .span12
+    .media
+      = link_to (@user), :class => "pull-left" do 
+        %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
+      .media-body.margin-bottom
+        %h4.media-heading 
+          = @user.name
+        %p.muted
+          = @user.email
+      .clearfix
+
+.page-header
+  %h5
+    Shots
+  
+
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @user.shots}
+
