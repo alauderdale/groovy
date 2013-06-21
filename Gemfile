@@ -34,3 +34,4 @@ gem 'thin'
 gem 'bourbon', '1.3.0'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
+gem 'acts-as-taggable-on'
