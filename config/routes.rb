@@ -5,7 +5,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get 'tags/:tag', to: 'shots#index', as: :tag
   root :to => "home#index"
   devise_for :users
-  resources :users
+  resources :users do
+    resources :shots
+  end
   devise_for :shots
   resources :shots do
     resources :comments
