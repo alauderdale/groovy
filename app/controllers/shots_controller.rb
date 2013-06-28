@@ -3,7 +3,6 @@ class ShotsController < ApplicationController
   def index
     if params[:tag]
       @shots = Shot.tagged_with(params[:tag])
-      @shot = Shot.find(params[:id])
       @tag = params[:tag]
     else
       @shots = Shot.order()

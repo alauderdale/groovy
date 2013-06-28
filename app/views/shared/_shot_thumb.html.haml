@@ -40,6 +40,7 @@
         = link_to (c) do
           %h5.no-margin-bottom
             = c.title
+            %i.icon-eur
         %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
         %h6.display-inline
           = link_to c.user.name, c.user
