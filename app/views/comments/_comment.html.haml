@@ -4,7 +4,7 @@
   .media-body.margin-bottome
     %p.no-margin-bottom
       %strong
-        = link_to (@shot.user) do
+        = link_to (comment.user) do
           = comment.user.name
     %p.no-margin-bottom
       = h(comment.body)
