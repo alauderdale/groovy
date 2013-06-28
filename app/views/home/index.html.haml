@@ -13,3 +13,5 @@
     Sign Up
   = link_to (new_user_session_path) , :class=>'btn btn-large' do
     Login
+.row
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @shots}

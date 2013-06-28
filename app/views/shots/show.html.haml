@@ -4,9 +4,6 @@
 
     var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
     {
-      m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-      oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-    }, {
       cssSelectorAncestor: "#cp_container_1",
       swfPath: "js",
       wmode: "window",
@@ -27,7 +24,7 @@
           = @shot.created_at.strftime("%B %d, %Y")
       .clearfix
   .span6
-    = render 'shot_audio'
+    = render 'shared/shot_audio'
     %p
       = @shot.description
     .comments
@@ -43,30 +40,37 @@
               = @shot.comments.count
               Responses
         = render :partial => @shot.comments
-      .page-header
-        %h5
-          Add a new comment
-      = form_for([@shot, @shot.comments.build]) do |f|
-        .field
-          = f.text_area :body, :rows => 5
-        = submit_tag("Post comment", :class=>"btn-primary btn") 
+      - if current_user.present?
+        .page-header
+          %h5
+            Add a new comment
+        = form_for([@shot, @shot.comments.build]) do |f|
+          .field
+            = f.text_area :body, :rows => 5, :required => true
+          = submit_tag("Post comment", :class=>"btn-primary btn") 
   .span6
     %p
-      Tags:
+      Tags
+      %br
       - if @shot.tags.count == 0
         %span.muted
           no tags
       - else
-        = raw @shot.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-    -if @shot.user.id == current_user.id
-      / Button to trigger modal
-      %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
-        %i.icon-trash 
-        Delete
-      %br
-      = link_to({:action => 'edit', :id => @shot.id})do
-        %i.icon-cog
-        Edit
+        / = raw @shot.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+        - @shot.tag_list.map do |t|
+          = link_to(tag_path(t)) do 
+            = t
+            %br
+    - if current_user.present?
+      -if @shot.user.id == current_user.id
+        / Button to trigger modal
+        %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
+          %i.icon-trash 
+          Delete
+        %br
+        = link_to({:action => 'edit', :id => @shot.id})do
+          %i.icon-cog
+          Edit
 
 / Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}

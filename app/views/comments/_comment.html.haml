@@ -11,8 +11,9 @@
     %p.muted
       %small
         = comment.created_at.strftime("%B %d, %Y")
-        -if current_user.id.to_i == comment.user_id.to_i
-          = link_to (edit_shot_comment_path(@shot, comment)) do
-            Edit
-          |
-          \#{link_to 'Delete', shot_comment_path(@shot, comment), :confirm => 'Are you sure?', :method => :delete}
+        - if current_user.present?
+          -if current_user.id.to_i == comment.user_id.to_i
+            = link_to (edit_shot_comment_path(@shot, comment)) do
+              Edit
+            |
+            \#{link_to 'Delete', shot_comment_path(@shot, comment), :confirm => 'Are you sure?', :method => :delete}

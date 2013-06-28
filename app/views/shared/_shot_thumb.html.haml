@@ -4,7 +4,9 @@
       .span3.margin-bottom
         = link_to (c) do
           .well.no-margin-bottom
-            = image_tag 'guitar.png'
+            / = image_tag 'guitar.png'
+            = render 'shared/shot_audio', :locals => {@shot => c}
+
         %h5.no-margin-bottom
           = c.title
         %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
