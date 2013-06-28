@@ -7,7 +7,7 @@
           %span.muted
             = @shot.title
       .clearfix
-    = render 'shot_audio'
+    = render 'shared/shot_audio'
   .span6
     = form_for(:shot, :url => {:action => 'update_shot', :id => @shot.id}) do |f|
       .field
