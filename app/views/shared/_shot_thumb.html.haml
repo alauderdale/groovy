@@ -17,7 +17,7 @@
               });
 
             });
-          .well.left
+          .left
             %div{:id=>"jquery_jplayer_#{c.id}", :class=>"cp-jplayer"}
             / The container for the interface can go where you want to display it. Show and hide it as you need.
             %div{:id=>"cp_container_#{c.id}", :class=>"cp-container"}
@@ -37,11 +37,12 @@
                   %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
                 / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
           .clearfix
-        %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
-        %h6.display-inline
-          = link_to c.user.name, c.user
+        .half-margin-bottom
+          %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
+          %h4.display-inline
+            = link_to c.user.name, c.user
         = link_to (c) do
-          %h5.no-margin-bottom
+          %h3
             = c.title
         %i.icon-comment
         = c.comments.count
