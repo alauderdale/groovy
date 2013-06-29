@@ -11,11 +11,11 @@
     });
 .row
   .span12
-    .media.margin-bottom
+    .media
       = link_to (@shot.user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
       .media-body.margin-bottom
-        %h4.media-heading 
+        %h3.media-heading 
           = @shot.title
         %p.muted
           by:
@@ -47,10 +47,11 @@
         = form_for([@shot, @shot.comments.build]) do |f|
           .field
             = f.text_area :body, :rows => 5, :required => true
-          = submit_tag("Post comment", :class=>"btn-primary btn") 
+          = submit_tag("Post comment", :class=>"btn") 
   .span6
     %p
-      Tags
+      %strong
+        Tags
       %br
       - if @shot.tags.count == 0
         %span.muted
@@ -87,4 +88,4 @@
   .modal-footer
     %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
     = form_for(:shot, :url => {:action => 'destroy_shot', :id => @shot.id}, :html => {:class => "display-inline"}) do |f|
-      = submit_tag("Delete Shot", :class=>"btn btn-primary")
+      = submit_tag("Delete Shot", :class=>"btn")
