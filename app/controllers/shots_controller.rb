@@ -26,7 +26,9 @@ class ShotsController < ApplicationController
       redirect_to shots_path, :notice => "Shot Created"
     #if form fails, redisplay form so user can fix problems
     else
-      render('new')
+      flash[:alert]= "Make sure the file you uploaded is an audio clip under 30 seconds!"
+      render :action => :new
+
     end
   end
 

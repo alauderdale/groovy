@@ -3,7 +3,7 @@
     .media
       = link_to (@user), :class => "pull-left" do 
         %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
-      .media-body.margin-bottom
+      .media-body
         %h4.media-heading 
           = @user.name
         %p.muted
@@ -11,7 +11,7 @@
       .clearfix
 
 .page-header
-  %h5
+  %h5.no-margin-bottom
     Shots
   
 

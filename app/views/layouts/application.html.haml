@@ -14,14 +14,14 @@
         .container
           = render 'layouts/navigation'
     #main{:role => "main"}
+      = render 'layouts/messages'
       .container
         .content
           .row
             .span12
-              = render 'layouts/messages'
               = yield
-          %footer.footer
-            .container
-              = render 'layouts/footer'
+      %footer.footer
+        .container
+          = render 'layouts/footer'
       / ! end of .container
     / ! end of #main
