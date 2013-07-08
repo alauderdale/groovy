@@ -1,0 +1,364 @@
+@import"bourbon";
+
+$baseline: 20px;
+
+//colors
+
+$primary-color:#e06900;
+$black-color:#1e2021;
+
+//nav
+.avatar-sm{
+  width: 20px;
+  height:20px;
+  height:auto;
+  @include border-radius(3px);
+}
+.avatar-med{
+  width: 40px;
+  height:auto;
+  @include border-radius(3px);
+}
+.avatar-lg{
+  width: 60px;
+  height:auto;
+  @include border-radius(3px);
+}
+
+.content {
+  padding: 18px;
+  margin: 0 -18px; /* negative indent the amount of the padding to maintain the grid system */
+}
+
+
+//yay fonts
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { 
+  font-weight: inherit; 
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin:0;
+  margin-bottom:$baseline; 
+
+}
+
+p  {
+  font-size: 1em; 
+  line-height:$baseline;
+}
+h1 { 
+  font-size: 2.4em; 
+  font-weight:200!important;
+  line-height:$baseline*2;
+}
+h2 { 
+  font-size: 2em; 
+  line-height:$baseline*2;
+  font-weight:200!important;
+}
+h3 { 
+  font-size: 1.4em; 
+  line-height:$baseline;
+  font-weight:200!important;
+}
+h4 { 
+  font-size: 1.2em; 
+  font-weight:200!important;
+  line-height:$baseline;
+}
+h5 { 
+  font-size: 1em; 
+  font-weight:bold!important;
+  line-height:$baseline;
+}
+h6 { 
+  font-size: 0.9em; 
+  font-weight:200!important;
+  line-height:$baseline;
+}
+
+
+
+
+//helpers
+
+.text-uppercase{
+  text-transform:uppercase;
+}
+
+.left{
+  float: left;
+}
+
+.display-inline{
+  display:inline;
+}
+
+//margin helpers
+
+.margin-auto{
+    margin:0 auto;
+}
+
+.margin{
+  margin:$baseline!important;
+}
+
+.margin-top{
+    margin-top:$baseline!important;
+}
+.margin-right{
+    margin-right:$baseline!important;
+}
+.margin-bottom{
+    margin-bottom:$baseline!important;
+}
+.margin-left{
+    margin-left:$baseline!important;
+}
+
+.double-margin-top{
+    margin-top:$baseline*2!important;
+}
+.double-margin-right{
+    margin-right:$baseline*2!important;
+}
+.double-margin-bottom{
+    margin-bottom:$baseline*2!important;
+}
+.double-margin-left{
+    margin-left:$baseline*2!important;
+}
+
+.half-margin-top{
+    margin-top:$baseline/2!important;
+}
+.half-margin-right{
+    margin-right:$baseline/2!important;
+}
+.half-margin-bottom{
+    margin-bottom:$baseline/2!important;
+}
+.half-margin-left{
+    margin-left:$baseline/2!important;
+}
+
+.quarter-margin-top{
+    margin-top:$baseline/4!important;
+}
+.quarter-margin-right{
+    margin-right:$baseline/4!important;
+}
+.quarter-margin-bottom{
+    margin-bottom:$baseline/4!important;
+}
+.quarter-margin-left{
+    margin-left:$baseline/4!important;
+}
+
+.no-margin{
+    margin:0px!important;
+}
+.no-margin-top{
+    margin-top:0px!important;
+}
+.no-margin-right{
+    margin-right:0px!important;
+}
+.no-margin-bottom{
+    margin-bottom:0px!important;
+}
+.no-margin-left{
+    margin-left:0px!important;
+}
+
+.large-margin-top{
+    margin-top:$baseline*3!important;
+}
+
+//paadding helpers
+
+.padded{
+    padding:$baseline!important;
+}
+
+.padding-top{
+    padding-top:$baseline!important;
+}
+.padding-right{
+    padding-right:$baseline!important;
+}
+.padding-bottom{
+    padding-bottom:$baseline!important;
+}
+.padding-left{
+    padding-left:$baseline!important;
+}
+
+.double-padding-top{
+    padding-top:$baseline*2!important;
+}
+.double-padding-right{
+    padding-right:$baseline*2!important;
+}
+.double-padding-bottom{
+    padding-bottom:$baseline*2!important;
+}
+.double-padding-left{
+    padding-left:$baseline*2!important;
+}
+
+
+.no-padding{
+    padding:0px!important;
+}
+.no-padding-top{
+    padding-top:0px!important;
+}
+.no-padding-right{
+    padding-right:0px!important;
+}
+.no-padding-bottom{
+    padding-bottom:0px!important;
+}
+.no-padding-left{
+    padding-left:0px!important;
+}
+
+.half-padding{
+    padding:$baseline/2!important;
+}
+.half-padding-top{
+    padding-top:$baseline/2!important;
+}
+.half-padding-right{
+    padding-right:$baseline/2!important;
+}
+.half-padding-bottom{
+    padding-bottom:$baseline/2!important;
+}
+.half-padding-left{
+    padding-left:$baseline/2!important;
+}
+
+.quarter-padding{
+    padding:$baseline/4!important;
+}
+.quarter-padding-top{
+    padding-top:$baseline/4!important;
+}
+.quarter-padding-right{
+    padding-right:$baseline/4!important;
+}
+.quarter-padding-bottom{
+    padding-bottom:$baseline/4!important;
+}
+.quarter-padding-left{
+    padding-left:$baseline/4!important;
+}
+
+//links
+
+a{
+  color:$black-color!important;
+  &:hover{
+    color:tint($black-color, 35%)!important;
+    text-decoration:none!important;
+  }
+
+}
+
+//buttons
+
+
+.btn, .btn-primary {
+    background-color: $black-color!important;
+    background-image: none!important;
+    border: none;
+    box-shadow: none;
+    color: white!important;
+    text-shadow: none!important;
+    padding:8px 20px;
+    font-weight:normal!important;
+    text-shadow:none!important;
+    @include transition-duration(.3s);
+}       
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: white!important;
+  background-color: #666!important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  transition: background-color .5s ease;
+  *background-color: #666;
+}
+
+.btn.active,
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+//footer
+
+footer{
+  padding:$baseline*4 0;
+  background-color:#f2f2f2;
+  border-top:1px solid #ddd;
+  color:#666;
+  a{
+    color:#333!important;
+  }
+}
+
+
+//bootstrap overrides
+
+
+
+.navbar{
+  .navbar-inner {
+    background:white!important;
+  }
+  .nav{
+    li{
+      a{
+        color:black!important;
+        &:hover{
+          color:$primary-color!important;
+        }
+      }
+    }
+  }
+  .nav_logo{
+    background:image-url('logo.png') no-repeat left;
+    padding-left:45px!important;
+    margin-left:$baseline/2;
+  }
+}
+
+.alert{
+  padding-top:$baseline;
+  padding-bottom:$baseline;
+}
+
+
+//player overrides
+
+.cp-container {
+  padding-left:4px;
+  padding-bottom:$baseline!important;
+  background-position-x: -49px!important;
+  padding-left: 0!important;
+  padding-top: 0!important;
+  background-position-y: -49px!important;
+}
