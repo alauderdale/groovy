@@ -1,6 +1,7 @@
 -if params[:tag]
-  %h3
-    Tags /
-    = @tag
+  .page-header
+    %h3
+      Tags /
+      = @tag
 
 = render :partial => 'shared/shot_thumb', :locals => {:shots => @shots}
