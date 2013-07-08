@@ -1,7 +1,7 @@
 class Shot < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
-  WillPaginate.per_page = 2
+  WillPaginate.per_page = 5
   has_attached_file :audio  ,
                     :url => "/assets/:class/:id/:attachment/:style.:extension",
                     :path => ":rails_root/public/assets/:class/:id/:attachment/:style.:extension"
