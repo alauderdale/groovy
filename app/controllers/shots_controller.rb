@@ -2,10 +2,10 @@ class ShotsController < ApplicationController
 
   def index
     if params[:tag]
-      @shots = Shot.tagged_with(params[:tag])
+      @shots = Shot.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
       @tag = params[:tag]
     else
-      @shots = Shot.order()
+      @shots = Shot.order().page(params[:page]).order('created_at DESC')
     end
   end
 
