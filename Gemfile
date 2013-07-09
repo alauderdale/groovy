@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.3'
 ruby '2.0.0'
 group :development, :test do
   gem 'sqlite3'
@@ -36,4 +36,4 @@ gem 'bourbon', '1.3.0'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'acts-as-taggable-on'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0.0'
