@@ -73,6 +73,9 @@
           %i.icon-cog
           Edit
 
+-@shot.rebounds.each do |c| 
+  = c.inspect
+
 / Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header

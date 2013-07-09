@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621045913) do
+ActiveRecord::Schema.define(:version => 20130709041214) do
 
   create_table "comments", :force => true do |t|
     t.string   "body"
     t.integer  "user_id"
     t.integer  "shot_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rebounds", :force => true do |t|
+    t.integer  "from_shot"
+    t.integer  "to_shot"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
