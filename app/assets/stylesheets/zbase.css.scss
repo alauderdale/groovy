@@ -346,6 +346,19 @@ footer{
   }
 }
 
+.dropdown{
+  ul.dropdown-menu{
+    li{
+      a{
+        &:hover{
+          color:white!important;
+          background:black!important;
+        }
+      }
+    }
+  }
+}
+
 .alert{
   padding-top:$baseline;
   padding-bottom:$baseline;
