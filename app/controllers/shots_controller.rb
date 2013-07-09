@@ -12,6 +12,7 @@ class ShotsController < ApplicationController
   def show
     @shot = Shot.find(params[:id])
     @comment = Comment.new( :shot => @shot )
+    @rebounds = Rebound.order()
   end
 
   def new
