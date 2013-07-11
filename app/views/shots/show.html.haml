@@ -72,7 +72,8 @@
         = link_to({:action => 'edit', :id => @shot.id})do
           %i.icon-cog
           Edit
-=@shot.rebounds
+-@rebounds.each do |s|
+  =s.inspect
 / -@rebounds.each do |c| 
 /   = c.inspect
 

@@ -22,10 +22,8 @@ ActiveRecord::Schema.define(:version => 20130709041214) do
   end
 
   create_table "rebounds", :force => true do |t|
-    t.integer  "from_shot"
-    t.integer  "to_shot"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "from_shot_id"
+    t.integer "to_shot_id"
   end
 
   create_table "roles", :force => true do |t|
