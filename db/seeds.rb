@@ -16,3 +16,10 @@ puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.add_role :admin
+
+# create Alex
+user2 = User.find_or_create_by_email :name => 'Alex LAuderdale', :email => 'alauderdale@mac.com', :password => 'beaker10', :password_confirmation => 'beaker10'
+# add some shots
+Shot.find_or_create_by_title :title => 'Shot 1', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200
+Shot.find_or_create_by_title :title => 'Shot 2', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200
+Shot.find_or_create_by_title :title => 'Shot 3', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200

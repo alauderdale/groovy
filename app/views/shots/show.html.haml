@@ -72,6 +72,10 @@
         = link_to({:action => 'edit', :id => @shot.id})do
           %i.icon-cog
           Edit
+-@rebounds.each do |s|
+  =s.inspect
+/ -@rebounds.each do |c| 
+/   = c.inspect
 
 / Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
