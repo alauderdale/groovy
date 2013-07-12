@@ -3,5 +3,5 @@
     %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
       %a.close{"data-dismiss" => "alert"} ×
       .container
-        %h3.no-margin-bottom
+        %h3.no-margin-bottom.margin-left
           = content_tag :div, msg, :id => "flash_#{name}"

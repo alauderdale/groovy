@@ -16,7 +16,11 @@ class ShotsController < ApplicationController
   end
 
   def new
-    @shot = Shot.new
+    if current_user
+      @shot = Shot.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -35,6 +39,11 @@ class ShotsController < ApplicationController
 
   def edit
     @shot = Shot.find(params[:id])
+    if current_user && current_user.id == @shot.user_id
+
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update_shot
