@@ -74,6 +74,19 @@
           %i.icon-cog
           Edit
 
+%h5.no-margin-bottom
+  Rebounds
+
+-@shot.rebounds.each do |r|
+  %h6
+    =r.to_shot.title
+
+
+%h5.no-margin-bottom
+  This shot is a rebound of
+-@shot.reverse_rebounds.each do |r|
+  %h6
+    =r.from_shot.title
 
 
 / Delete Modal
