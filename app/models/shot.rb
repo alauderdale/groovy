@@ -1,8 +1,7 @@
 class Shot < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
-  has_many :rebounds
-  has_many :shots, :through => :rebounds
+  has_many :rebounds, class_name: "Rebound", foreign_key: "from_shot_id"
   has_attached_file :audio  ,
                     :url => "/assets/:class/:id/:attachment/:style.:extension",
                     :path => ":rails_root/public/assets/:class/:id/:attachment/:style.:extension"
