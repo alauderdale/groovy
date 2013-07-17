@@ -29876,3 +29876,128 @@ ActionController::RoutingError (No route matches [GET] "/audios/original/missing
 
 
   Rendered /Users/alauderdale/.rvm/gems/ruby-2.0.0-p0@rails3-bootstrap-devise-cancan/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (53.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/shots/2" for 127.0.0.1 at 2013-07-17 00:19:21 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mShot Load (0.2ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered shared/_shot_audio.html.haml (3.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 2 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 2[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 1 LIMIT 1
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 2[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 3 LIMIT 1
+  Rendered shots/show.html.haml within layouts/application (97.3ms)
+  Rendered layouts/_navigation.html.haml (4.0ms)
+  Rendered layouts/_messages.html.haml (1.1ms)
+  Rendered layouts/_footer.html.haml (1.5ms)
+Completed 200 OK in 234ms (Views: 213.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/audios/original/missing.png" for 127.0.0.1 at 2013-07-17 00:19:22 -0600
+
+ActionController::RoutingError (No route matches [GET] "/audios/original/missing.png"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/alauderdale/.rvm/gems/ruby-2.0.0-p0@rails3-bootstrap-devise-cancan/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/shots/2" for 127.0.0.1 at 2013-07-17 00:19:40 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered shared/_shot_audio.html.haml (0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 2 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 2[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 1 LIMIT 1
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 2[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 3 LIMIT 1
+  Rendered shots/show.html.haml within layouts/application (47.3ms)
+  Rendered layouts/_navigation.html.haml (0.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 134ms (Views: 80.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/audios/original/missing.png" for 127.0.0.1 at 2013-07-17 00:19:41 -0600
+
+ActionController::RoutingError (No route matches [GET] "/audios/original/missing.png"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.13) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.13) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.13) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.13) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/alauderdale/.rvm/gems/ruby-2.0.0-p0@rails3-bootstrap-devise-cancan/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
