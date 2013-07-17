@@ -4,7 +4,7 @@ class Shot < ActiveRecord::Base
   has_many :rebounds, :class_name => "Rebound", :foreign_key => "from_shot_id", :dependent => :destroy
   has_many :reverse_rebounds, :class_name => "Rebound",
       :foreign_key => "to_shot_id", :dependent => :destroy
-  # has_many :shots, :through => :rebounds, :source => :to_shot
+  has_many :shots, :through => :rebounds, :source => :to_shot
   has_attached_file :audio  ,
                     :url => "/assets/:class/:id/:attachment/:style.:extension",
                     :path => ":rails_root/public/assets/:class/:id/:attachment/:style.:extension"

@@ -79,14 +79,16 @@
 
 -@shot.rebounds.each do |r|
   %h6
-    =r.to_shot.title
+    = link_to (r.to_shot) do
+      =r.to_shot.title
 
 
 %h5.no-margin-bottom
   This shot is a rebound of
 -@shot.reverse_rebounds.each do |r|
   %h6
-    =r.from_shot.title
+    = link_to (r.from_shot) do
+      =r.from_shot.title
 
 
 / Delete Modal
