@@ -78,7 +78,7 @@
   Rebounds
 
 -@shot.rebounds.each do |r|
-  %h6
+  %h6.no-margin-bottom
     = link_to (r.to_shot) do
       =r.to_shot.title
 
@@ -86,7 +86,7 @@
 %h5.no-margin-bottom
   This shot is a rebound of
 -@shot.reverse_rebounds.each do |r|
-  %h6
+  %h6.no-margin-bottom
     = link_to (r.from_shot) do
       =r.from_shot.title
 
