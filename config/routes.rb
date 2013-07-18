@@ -9,8 +9,10 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
     resources :shots
   end
   devise_for :shots
+  devise_for :rebounds
   resources :shots do
     resources :comments
+    resources :rebounds
   end
   match ':controller(/:action(/:id))(.:format)'
 end
