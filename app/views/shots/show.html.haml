@@ -64,7 +64,7 @@
             = t
             %br
     - if current_user.present?
-      %a{:href=>"#{new_shot_path}"}
+      = link_to({:action => 'rebound', :id => @shot.id})do
         %i.icon-circle-arrow-right 
         Rebound
       %br
