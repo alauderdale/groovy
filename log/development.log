@@ -59792,3 +59792,264 @@ Processing by ShotsController#show as HTML
   Rendered layouts/_messages.html.haml (0.1ms)
   Rendered layouts/_footer.html.haml (0.2ms)
 Completed 200 OK in 104ms (Views: 101.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-18 00:53:36 -0600
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Processing by ShotsController#index as HTML
+  [1m[35mShot Load (0.3ms)[0m  SELECT "shots".* FROM "shots" ORDER BY created_at DESC LIMIT 8 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shots" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 23[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 21[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 19[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 18[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 17[0m
+  Rendered shared/_shot_thumb.html.haml (36.8ms)
+  Rendered shots/index.html.haml within layouts/application (37.7ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (8.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 80ms (Views: 78.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/shots/24" for 127.0.0.1 at 2013-07-18 00:53:39 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mShot Load (0.2ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "24"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered shared/_shot_audio.html.haml (0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 24 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 24
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 24[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 23 LIMIT 1
+  Rendered shots/show.html.haml within layouts/application (20.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.haml (3.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 68ms (Views: 60.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/shots/rebound/24" for 127.0.0.1 at 2013-07-18 00:53:40 -0600
+Processing by ShotsController#rebound as HTML
+  Parameters: {"id"=>"24"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "24"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)
+  Rendered shots/_form.html.haml (4.0ms)
+  Rendered shots/rebound.html.haml within layouts/application (5.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.haml (3.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 94ms (Views: 91.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/shots/create_rebound/24" for 127.0.0.1 at 2013-07-18 00:53:54 -0600
+Processing by ShotsController#create_rebound as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DfV3m7nt4FV+zCotBijveEMlVz2cMb/GtfHx5slpMJQ=", "shot"=>{"title"=>"im an even better shot", "description"=>"right!!!", "audio"=>#<ActionDispatch::Http::UploadedFile:0x007f8ba58f7c48 @original_filename="Memo.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"shot[audio]\"; filename=\"Memo.m4a\"\r\nContent-Type: audio/x-m4a\r\n", @tempfile=#<Tempfile:/var/folders/cp/k0yp0cl96ws3r4fj29fy39380000gn/T/RackMultipart20130718-40604-1zly6x>>, "tag_list"=>""}, "commit"=>"Create", "id"=>"24"}
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1  [["id", "24"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `audio_content_type`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "shots" ("audio_content_type", "audio_file_name", "audio_file_size", "audio_updated_at", "created_at", "description", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["audio_content_type", "audio/x-m4a"], ["audio_file_name", "Memo.m4a"], ["audio_file_size", 95622], ["audio_updated_at", Thu, 18 Jul 2013 06:53:54 UTC +00:00], ["created_at", Thu, 18 Jul 2013 06:53:54 UTC +00:00], ["description", "right!!!"], ["title", "im an even better shot"], ["updated_at", Thu, 18 Jul 2013 06:53:54 UTC +00:00], ["user_id", 2]]
+[paperclip] Saving attachments.
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 25 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rebounds" ("created_at", "from_shot_id", "to_shot_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 18 Jul 2013 06:53:54 UTC +00:00], ["from_shot_id", 24], ["to_shot_id", 25], ["updated_at", Thu, 18 Jul 2013 06:53:54 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/shots
+Completed 302 Found in 18ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/shots" for 127.0.0.1 at 2013-07-18 00:53:54 -0600
+Processing by ShotsController#index as HTML
+  [1m[35mShot Load (0.3ms)[0m  SELECT "shots".* FROM "shots" ORDER BY created_at DESC LIMIT 8 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shots" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 25[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 23[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 21[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 19[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 18[0m
+  Rendered shared/_shot_thumb.html.haml (25.9ms)
+  Rendered shots/index.html.haml within layouts/application (26.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.haml (3.8ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 66ms (Views: 64.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/shots/25" for 127.0.0.1 at 2013-07-18 00:53:56 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1  [["id", "25"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered shared/_shot_audio.html.haml (0.7ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 25
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 25 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 25[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 25
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = 24 LIMIT 1[0m
+  Rendered shots/show.html.haml within layouts/application (10.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (3.4ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shots/24" for 127.0.0.1 at 2013-07-18 00:53:59 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "24"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered shared/_shot_audio.html.haml (0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 24 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 24
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = 25 LIMIT 1[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 24
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = 23 LIMIT 1[0m
+  Rendered shots/show.html.haml within layouts/application (11.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (3.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 53ms (Views: 51.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shots/rebound/24" for 127.0.0.1 at 2013-07-18 00:54:08 -0600
+Processing by ShotsController#rebound as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1  [["id", "24"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered shots/_form.html.haml (2.9ms)
+  Rendered shots/rebound.html.haml within layouts/application (4.7ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (3.5ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/shots/create_rebound/24" for 127.0.0.1 at 2013-07-18 00:54:20 -0600
+Processing by ShotsController#create_rebound as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DfV3m7nt4FV+zCotBijveEMlVz2cMb/GtfHx5slpMJQ=", "shot"=>{"title"=>"im also an even better shot", "description"=>"", "audio"=>#<ActionDispatch::Http::UploadedFile:0x007f8ba1a4b530 @original_filename="Memo.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"shot[audio]\"; filename=\"Memo.m4a\"\r\nContent-Type: audio/x-m4a\r\n", @tempfile=#<Tempfile:/var/folders/cp/k0yp0cl96ws3r4fj29fy39380000gn/T/RackMultipart20130718-40604-uhygc0>>, "tag_list"=>""}, "commit"=>"Create", "id"=>"24"}
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" IS NULL AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "24"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+Binary data inserted for `string` type on column `audio_content_type`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "shots" ("audio_content_type", "audio_file_name", "audio_file_size", "audio_updated_at", "created_at", "description", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["audio_content_type", "audio/x-m4a"], ["audio_file_name", "Memo.m4a"], ["audio_file_size", 95622], ["audio_updated_at", Thu, 18 Jul 2013 06:54:20 UTC +00:00], ["created_at", Thu, 18 Jul 2013 06:54:20 UTC +00:00], ["description", ""], ["title", "im also an even better shot"], ["updated_at", Thu, 18 Jul 2013 06:54:20 UTC +00:00], ["user_id", 2]]
+[paperclip] Saving attachments.
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 26 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rebounds" ("created_at", "from_shot_id", "to_shot_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 18 Jul 2013 06:54:20 UTC +00:00], ["from_shot_id", 24], ["to_shot_id", 26], ["updated_at", Thu, 18 Jul 2013 06:54:20 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/shots
+Completed 302 Found in 15ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/shots" for 127.0.0.1 at 2013-07-18 00:54:20 -0600
+Processing by ShotsController#index as HTML
+  [1m[36mShot Load (0.3ms)[0m  [1mSELECT "shots".* FROM "shots" ORDER BY created_at DESC LIMIT 8 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "shots" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 26
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 25
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 21
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 20
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 19
+  Rendered shared/_shot_thumb.html.haml (24.6ms)
+  Rendered shots/index.html.haml within layouts/application (25.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (3.9ms)
+  Rendered layouts/_messages.html.haml (0.3ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 113ms (Views: 111.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/shots/26" for 127.0.0.1 at 2013-07-18 00:54:22 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1[0m  [["id", "26"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered shared/_shot_audio.html.haml (0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 26[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 26 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 26
+  [1m[36mRebound Load (0.1ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 26[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 24 LIMIT 1
+  Rendered shots/show.html.haml within layouts/application (10.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.haml (3.4ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 52ms (Views: 50.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/shots/24" for 127.0.0.1 at 2013-07-18 00:54:24 -0600
+Processing by ShotsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = ? LIMIT 1  [["id", "24"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered shared/_shot_audio.html.haml (0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."shot_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 24 AND "taggings"."taggable_type" = 'Shot' AND (taggings.context = ('tags'))
+  [1m[36mRebound Load (0.2ms)[0m  [1mSELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."from_shot_id" = 24[0m
+  [1m[35mShot Load (0.1ms)[0m  SELECT "shots".* FROM "shots" WHERE "shots"."id" = 25 LIMIT 1
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = 26 LIMIT 1[0m
+  [1m[35mRebound Load (0.1ms)[0m  SELECT "rebounds".* FROM "rebounds" WHERE "rebounds"."to_shot_id" = 24
+  [1m[36mShot Load (0.1ms)[0m  [1mSELECT "shots".* FROM "shots" WHERE "shots"."id" = 23 LIMIT 1[0m
+  Rendered shots/show.html.haml within layouts/application (61.4ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.haml (3.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 105ms (Views: 102.1ms | ActiveRecord: 1.1ms)
