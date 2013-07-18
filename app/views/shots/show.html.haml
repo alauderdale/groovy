@@ -64,6 +64,10 @@
             = t
             %br
     - if current_user.present?
+      %a{:href=>"#{new_shot_path}"}
+        %i.icon-circle-arrow-right 
+        Rebound
+      %br
       -if @shot.user.id == current_user.id
         / Button to trigger modal
         %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
