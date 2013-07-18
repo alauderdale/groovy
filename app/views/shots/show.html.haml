@@ -42,6 +42,7 @@
         = render :partial => @shot.comments
       - if current_user.present?
         .page-header
+        #page-header
           %h5
             Add a new comment
         = form_for([@shot, @shot.comments.build]) do |f|
@@ -63,6 +64,10 @@
             = t
             %br
     - if current_user.present?
+      = link_to({:action => 'rebound', :id => @shot.id})do
+        %i.icon-circle-arrow-right 
+        Rebound
+      %br
       -if @shot.user.id == current_user.id
         / Button to trigger modal
         %a{"data-toggle" => "modal", :href => "#delete", :role => "button"}
@@ -72,10 +77,23 @@
         = link_to({:action => 'edit', :id => @shot.id})do
           %i.icon-cog
           Edit
--@rebounds.each do |s|
-  =s.inspect
-/ -@rebounds.each do |c| 
-/   = c.inspect
+
+%h5.no-margin-bottom
+  Rebounds
+
+-@shot.rebounds.each do |r|
+  %h6.no-margin-bottom
+    = link_to (r.to_shot) do
+      =r.to_shot.title
+
+
+%h5.no-margin-bottom
+  This shot is a rebound of
+-@shot.reverse_rebounds.each do |r|
+  %h6.no-margin-bottom
+    = link_to (r.from_shot) do
+      =r.from_shot.title
+
 
 / Delete Modal
 #delete.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
