@@ -46,6 +46,8 @@
             = c.title
         %i.icon-comment
         = c.comments.count
+        -if c.reverse_rebounds.count == 1
+          %i.icon-circle-arrow-right 
         / %i.icon-flag
         / = c.audio_file_size/8692
         / seconds
