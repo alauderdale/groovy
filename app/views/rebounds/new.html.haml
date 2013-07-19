@@ -4,9 +4,9 @@
     This shot is a rebound of
     %br
     %strong
-        =@rebound_shot.title
+        =@from_shot.title
 
-= form_for(:shot, :url => {:action => 'create_rebound', :id => @rebound_shot.id}, :html => { :multipart => true }) do |f| 
+= form_for(:shot, :url => {:action => 'create', :id => @from_shot.id}, :html => { :multipart => true }) do |f| 
     = render(:partial => 'form', :locals => {:f => f})
     .form-buttons
         = submit_tag("Create", :class=>"btn btn-primary") 
