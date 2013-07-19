@@ -24,7 +24,7 @@
           = @shot.created_at.strftime("%B %d, %Y")
       .clearfix
   .span6
-    = render 'shared/shot_audio'
+    = render :partial => 'shared/shot_audio', :locals => {:shot => @shot}
     %p
       = @shot.description
     .comments

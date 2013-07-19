@@ -5,6 +5,7 @@
     %br
     %strong
         =@from_shot.title
+    = render :partial => 'shared/shot_audio', :locals => {:shot => @from_shot}
 
 = form_for(:shot, :url => {:action => 'create', :id => @from_shot.id}, :html => { :multipart => true }) do |f| 
     = render(:partial => 'form', :locals => {:f => f})
