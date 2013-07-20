@@ -24,4 +24,8 @@ class ReboundsController < ApplicationController
 
 	    end
   	end
+
+  	def show
+	    @shot = Shot.find(params[:id])
+  	end
 end
