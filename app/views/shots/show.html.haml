@@ -24,7 +24,7 @@
           = @shot.created_at.strftime("%B %d, %Y")
       .clearfix
   .span6
-    = render 'shared/shot_audio'
+    = render :partial => 'shared/shot_audio', :locals => {:shot => @shot}
     %p
       = @shot.description
     .comments
@@ -63,8 +63,19 @@
           = link_to(tag_path(t)) do 
             = t
             %br
+    -if @shot.rebounds.count > 0
+      = link_to(shot_rebound_path(@shot, :id => @shot.id)) do
+        %p
+          %strong
+            = @shot.rebounds.count
+            -if @shot.rebounds.count == 1
+              Rebound
+            -else
+              Rebounds
+      %br
+
     - if current_user.present?
-      = link_to({:action => 'rebound', :id => @shot.id})do
+      = link_to(new_shot_rebound_path(@shot.id, :id => @shot.id))do
         %i.icon-circle-arrow-right 
         Rebound
       %br
