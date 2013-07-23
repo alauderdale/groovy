@@ -27,5 +27,6 @@ class ReboundsController < ApplicationController
 
   	def show
 	    @shot = Shot.find(params[:id])
+	    @rebounds = @shot.shots.page(params[:page]).order('created_at DESC')
   	end
 end

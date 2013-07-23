@@ -22,6 +22,7 @@ class ShotsController < ApplicationController
     end
   end
 
+
   def rebound
     if current_user
       @rebound_shot = Shot.find(params[:id])

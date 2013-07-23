@@ -27,6 +27,14 @@
     = render :partial => 'shared/shot_audio', :locals => {:shot => @shot}
     %p
       = @shot.description
+    -if @shot.reverse_rebounds.count > 0
+      .well
+        %h5.no-margin-bottom
+          This shot is a rebound of
+        -@shot.reverse_rebounds.each do |r|
+          %h6.no-margin-bottom
+            = link_to (r.from_shot) do
+              =r.from_shot.title
     .comments
       - if @shot.comments.count == 0
       - else
@@ -88,22 +96,6 @@
         = link_to({:action => 'edit', :id => @shot.id})do
           %i.icon-cog
           Edit
-
-%h5.no-margin-bottom
-  Rebounds
-
--@shot.rebounds.each do |r|
-  %h6.no-margin-bottom
-    = link_to (r.to_shot) do
-      =r.to_shot.title
-
-
-%h5.no-margin-bottom
-  This shot is a rebound of
--@shot.reverse_rebounds.each do |r|
-  %h6.no-margin-bottom
-    = link_to (r.from_shot) do
-      =r.from_shot.title
 
 
 / Delete Modal
