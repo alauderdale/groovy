@@ -44,8 +44,20 @@
         = link_to (c) do
           %h3
             = c.title
-        %i.icon-comment
-        = c.comments.count
+        %span.margin-right
+          %i.icon-comment
+          = c.comments.count
+        %span.margin-right
+          -if current_user.present?
+            -if current_user.voted_up_on? c
+              %i.icon-heart.liked
+              = c.likes.size
+            -else
+              %i.icon-heart
+              = c.likes.size
+          -else
+            %i.icon-heart
+            = c.likes.size
         -if c.reverse_rebounds.count == 1
           %i.icon-circle-arrow-right 
         / %i.icon-flag
