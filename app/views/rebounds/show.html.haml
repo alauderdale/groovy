@@ -1,7 +1,23 @@
-%h1
-	=@shot.title
+.row
+	.span12
+		.media
+			= link_to (@shot.user), :class => "pull-left" do 
+				%img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
+			.media-body.margin-bottom
+				= link_to (@shot) do
+					%h3.media-heading 
+						= @shot.title
+				%p.muted
+					by:
+					= link_to (@shot.user) do
+						= @shot.user.name
+					= @shot.created_at.strftime("%B %d, %Y")
+				.clearfix
+	.span6
+		= render :partial => 'shared/shot_audio', :locals => {:shot => @shot}
+%h5
+	=@shot.rebounds.count
+	Rebounds
+%hr
 %br
--@shot.shots.each do |s|
-	= link_to(s) do
-		=s.title
-	%br
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @rebounds}
