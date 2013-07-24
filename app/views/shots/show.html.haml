@@ -76,21 +76,6 @@
         Likes
       %br
       =@shot.likes.size
-    //like button
-    -if current_user.voted_up_on? @shot
-      = link_to({:action => 'un_like_shot', :id => @shot.id})do
-        .btn.margin-bottom{:style=>"background-color:orange!important;"}
-          Like?
-    -else
-      = link_to({:action => 'like_shot', :id => @shot.id})do
-        .btn.margin-bottom{:style=>"background-color:green!important;"}
-          You Like
-    %br
-    -@shot.likes.voters.each do |v|
-      = link_to(v) do
-        =v.name
-      %br
-
     %br
     -if @shot.rebounds.count > 0
       = link_to(shot_rebound_path(@shot, :id => @shot.id)) do
@@ -102,6 +87,17 @@
             -else
               Rebounds
     - if current_user.present?
+      //like button
+      -if current_user.voted_up_on? @shot
+        = link_to({:action => 'un_like_shot', :id => @shot.id})do
+          %span.liked
+            %i.icon-heart
+            You like
+      -else
+        = link_to({:action => 'like_shot', :id => @shot.id})do
+          %i.icon-heart
+          Like?
+      %br
       = link_to(new_shot_rebound_path(@shot.id, :id => @shot.id))do
         %i.icon-circle-arrow-right 
         Rebound
