@@ -37,3 +37,4 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'acts-as-taggable-on'
 gem 'will_paginate', '~> 3.0.0'
+gem 'acts_as_votable', '~> 0.5.0'
