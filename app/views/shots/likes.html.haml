@@ -1,0 +1,7 @@
+%h1
+	=@shot.title
+
+-@shot.likes.each do |v|
+	=link_to(v.voter) do
+		=v.voter.name
+	%br

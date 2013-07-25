@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @shots = @user.shots.page(params[:page]).order('created_at DESC')
+    @user_shots = @user.shots.page(params[:page]).order('created_at DESC')
+    @likes = @user.get_up_voted Shot.page(params[:page]).order('created_at DESC')
 
   end
   
