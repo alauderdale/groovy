@@ -19,7 +19,9 @@ user.add_role :admin
 
 # create Alex
 user2 = User.find_or_create_by_email :name => 'Alex LAuderdale', :email => 'alauderdale@mac.com', :password => 'beaker10', :password_confirmation => 'beaker10'
+# create Alex
+user3 = User.find_or_create_by_email :name => 'John Doe', :email => 'john@doe.com', :password => 'beaker10', :password_confirmation => 'beaker10'
 # add some shots
 Shot.find_or_create_by_title :title => 'Shot 1', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200
 Shot.find_or_create_by_title :title => 'Shot 2', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200
-Shot.find_or_create_by_title :title => 'Shot 3', :user_id => user2.id, :description => 'cool man', :audio_file_size => 200
+Shot.find_or_create_by_title :title => 'Shot 3', :user_id => user3.id, :description => 'cool man', :audio_file_size => 200

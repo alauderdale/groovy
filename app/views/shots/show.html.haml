@@ -75,7 +75,11 @@
       %strong
         Likes
       %br
-      =@shot.likes.size
+      -if @shot.likes.size > 0
+        =link_to(:action =>"likes", :controller=>"shots", :id=>@shot.id) do
+          =@shot.likes.size
+      -else
+        =@shot.likes.size
     %br
     -if @shot.rebounds.count > 0
       = link_to(shot_rebound_path(@shot, :id => @shot.id)) do

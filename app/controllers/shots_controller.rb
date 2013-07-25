@@ -45,6 +45,10 @@ class ShotsController < ApplicationController
     end
   end
 
+  def likes
+    @shot = Shot.find(params[:id])
+  end
+
   def update_shot
     # Find object using form parameters
     @shot = Shot.find(params[:id])

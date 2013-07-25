@@ -13,6 +13,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :shots do
     resources :comments
     resources :rebounds
+    match 'shots/likes/:id', to: 'shots#likes'
   end
   match ':controller(/:action(/:id))(.:format)'
 end
