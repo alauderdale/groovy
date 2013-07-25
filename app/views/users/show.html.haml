@@ -13,6 +13,10 @@
 .page-header
   %h5.no-margin-bottom
     Shots
-  
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @user_shots}
 
-= render :partial => 'shared/shot_thumb', :locals => {:shots => @shots}
+.page-header
+  %h5.no-margin-bottom
+    Likes
+/ =@likes.inspect
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @likes}
