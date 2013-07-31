@@ -1,36 +1,42 @@
 -@userguy ||= current_user
 .row
   .span12
-    .media
-      = link_to (@user), :class => "pull-left" do 
-        %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
-      .media-body
-        %h4.media-heading 
-          = @user.name
-        %p.muted
-          = @user.email
+    .row
+      .span9
+        .media
+          = link_to (@user), :class => "pull-left" do 
+            %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
+          .media-body
+            %h4.media-heading 
+              = @user.name
+            %p.muted.quarter-margin-bottom
+              = @user.email
+            -if current_user
+              - unless current_user==(@user)
+                #follow_form
+                  - if current_user.following?(@user)
+                    = form_for(current_user.relationships.find_by_followed_id(@user), |
+                      html: { method: :delete }) do |f|                                |
+                      = f.submit "Unfollow", class: "btn"
+                  - else
+                    = form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
+                      %div= f.hidden_field :followed_id
+
+                      = f.submit "+ Follow", class: "btn btn-success"
+      .span3
         %div
           .pull-left.margin-right
+            %h1.no-margin-bottom
+              %strong
+                = @user.followed_users.count
             %p
               Following
-              %br
-              = @user.followed_users.count
           .pull-left
+            %h1.no-margin-bottom
+              %strong
+                = @user.followers.count
             %p
               Followers
-              %br
-              = @user.followers.count
-        -if current_user
-          - unless current_user==(@user)
-            #follow_form
-              - if current_user.following?(@user)
-                = form_for(current_user.relationships.find_by_followed_id(@user), |
-                  html: { method: :delete }) do |f|                                |
-                  = f.submit "Unfollow", class: "btn btn-large"
-              - else
-                = form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
-                  %div= f.hidden_field :followed_id
-                  = f.submit "Follow", class: "btn btn-large btn-primary"
       .clearfix
 
 .page-header

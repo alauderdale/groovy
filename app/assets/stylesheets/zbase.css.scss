@@ -6,6 +6,9 @@ $baseline: 20px;
 
 $primary-color:#e06900;
 $black-color:#1e2021;
+$success-color:#8aba56;
+$warning-color:yellow;
+$erroe-color:red;
 
 //nav
 .avatar-sm{
@@ -20,7 +23,7 @@ $black-color:#1e2021;
   @include border-radius(3px);
 }
 .avatar-lg{
-  width: 60px;
+  width: 88px;
   height:auto;
   @include border-radius(3px);
 }
@@ -278,18 +281,32 @@ a{
 //buttons
 
 
-.btn, .btn-primary {
-    background-color: $black-color!important;
-    background-image: none!important;
-    border: none;
-    box-shadow: none;
-    color: white!important;
-    text-shadow: none!important;
-    padding:8px 20px;
-    font-weight:normal!important;
-    text-shadow:none!important;
-    @include transition-duration(.3s);
-}       
+.btn {
+  background-image: none!important;
+  background-color:#666;
+  border: none;
+  box-shadow: none;
+  color: white!important;
+  text-shadow: none!important;
+  padding:8px 20px;
+  font-weight:normal!important;
+  text-shadow:none!important;
+  @include transition-duration(.3s);
+}  
+
+.btn-primary{
+  background-color: $black-color!important;
+}
+
+.btn-success{
+  background-color:$success-color!important;
+}   
+.btn-danger{
+  background-color:$success-color!important;
+} 
+.btn-warning{
+  background-color:$success-color!important;
+}   
 
 .btn:hover,
 .btn:focus,
