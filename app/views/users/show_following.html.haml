@@ -6,6 +6,4 @@
     = @user.name
     Is not following anyone
 - @user.followed_users.each do |u|
-  =link_to(u) do
-    = u.name
-    %br
+  = render :partial => 'shared/user_list', :locals => {:user => @user}
