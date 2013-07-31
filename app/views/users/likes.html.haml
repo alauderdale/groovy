@@ -1,0 +1,11 @@
+- provide(:title, @title)
+
+%h2
+  %strong
+    = link_to(@user) do
+      =@user.name
+  \/
+  = @title
+
+
+= render :partial => 'shared/shot_thumb', :locals => {:shots => @likes}

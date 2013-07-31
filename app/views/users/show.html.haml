@@ -2,7 +2,7 @@
 .row
   .span12
     .row
-      .span9
+      .span8
         .media
           = link_to (@user), :class => "pull-left" do 
             %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
@@ -23,7 +23,7 @@
                       %div= f.hidden_field :followed_id
 
                       = f.submit "+ Follow", class: "btn btn-success"
-      .span3
+      .span4
         =render"shared/stats"
       .clearfix
 
@@ -31,9 +31,3 @@
   %h5.no-margin-bottom
     Shots
 = render :partial => 'shared/shot_thumb', :locals => {:shots => @user_shots}
-
-.page-header
-  %h5.no-margin-bottom
-    Likes
-/ =@likes.inspect
-= render :partial => 'shared/shot_thumb', :locals => {:shots => @likes}

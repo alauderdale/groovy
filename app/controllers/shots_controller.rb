@@ -46,6 +46,7 @@ class ShotsController < ApplicationController
   end
 
   def likes
+    @title = "Fans"
     @shot = Shot.find(params[:id])
   end
 

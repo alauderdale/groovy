@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def likes
+    @title = "Likes"
+    @user = User.find(params[:id])
+    @likes = @user.get_up_voted Shot.page(params[:page]).order('created_at DESC')
+  end
+
   def following
     @title = "Following"
     @user = User.find(params[:id])
