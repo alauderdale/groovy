@@ -1,0 +1,21 @@
+- provide(:title, @title)
+
+
+%h2
+  %strong
+    = link_to(@user) do
+      =@user.name
+  \/
+  = @title
+
+
+%h3 
+  followers
+-if @user.followed_users.count == 0
+  %p.muted
+    = @user.name
+    Is not following anyone
+- @user.followed_users.each do |u|
+  =link_to(u) do
+    = u.name
+    %br

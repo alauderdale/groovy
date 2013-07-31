@@ -24,19 +24,7 @@
 
                       = f.submit "+ Follow", class: "btn btn-success"
       .span3
-        %div
-          .pull-left.margin-right
-            %h1.no-margin-bottom
-              %strong
-                = @user.followed_users.count
-            %p
-              Following
-          .pull-left
-            %h1.no-margin-bottom
-              %strong
-                = @user.followers.count
-            %p
-              Followers
+        =render"shared/stats"
       .clearfix
 
 .page-header
