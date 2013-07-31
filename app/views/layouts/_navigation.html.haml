@@ -20,6 +20,7 @@
       %li.dropdown
         %a{:href=>"#",:class=>"dropdown-toggle", :'data-toggle'=>"dropdown"}
           %img.avatar-sm{:src=>"#{current_user.avatar.url(:thumb)}"}
+          =current_user.name
           %b.caret
         %ul.dropdown-menu
           %li

@@ -6,6 +6,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users do
+    member do
+      get :following, :followers
+    end
     resources :shots
   end
   devise_for :shots
@@ -15,5 +18,6 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
     resources :rebounds
     match 'shots/likes/:id', to: 'shots#likes'
   end
+  resources :relationships, only: [:create, :destroy]
   match ':controller(/:action(/:id))(.:format)'
 end
