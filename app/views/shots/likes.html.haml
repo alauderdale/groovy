@@ -1,7 +1,4 @@
-%h1
-	=@shot.title
+= render :partial => 'shared/breadcrumb', :locals => {:item => @shot, :item_title =>@shot.title, :title => @title}
 
 -@shot.likes.each do |v|
-	=link_to(v.voter) do
-		=v.voter.name
-	%br
+	= render :partial => 'shared/user_list', :locals => {:user => v.voter}

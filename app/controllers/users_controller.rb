@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-
+  # before_filter :authenticate_user!, 
+  #       only: [ :following, :followers]
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
@@ -32,5 +33,25 @@ class UsersController < ApplicationController
     else
       redirect_to users_path, :notice => "Can't delete yourself."
     end
+  end
+
+  def likes
+    @title = "Likes"
+    @user = User.find(params[:id])
+    @likes = @user.get_up_voted Shot.page(params[:page]).order('created_at DESC')
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_following'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_followers'
   end
 end
