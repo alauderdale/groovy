@@ -1,12 +1,5 @@
-- provide(:title, @title)
+= render :partial => 'shared/breadcrumb', :locals => {:item => @user, :item_title =>@user.name, :title => @title}
 
-
-%h2
-  %strong
-    = link_to(@user) do
-      =@user.name
-  \/
-  = @title
 
 -if @user.followed_users.count == 0
   %p.muted

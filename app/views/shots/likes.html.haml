@@ -1,11 +1,4 @@
-- provide(:title, @title)
-
-%h2
-  %strong
-    = link_to(@shot) do
-      =@shot.title
-  \/
-  = @title
+= render :partial => 'shared/breadcrumb', :locals => {:item => @shot, :item_title =>@shot.title, :title => @title}
 
 -@shot.likes.each do |v|
   =link_to(v.voter) do
