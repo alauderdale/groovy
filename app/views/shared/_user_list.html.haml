@@ -1,0 +1,12 @@
+.media.double-margin-bottom
+	=link_to user, :class=>"pull-left" do
+		%img.avatar-lg{:src=>"#{user.avatar.url(:thumb)}"}
+	.media-body
+		=link_to user do
+			%h3.media-heading 
+				=user.name
+			%p
+				= user.shots.count
+				shots
+				= user.followers.count
+				Followers

@@ -1,22 +1,33 @@
+-@userguy ||= current_user
 .row
   .span12
-    .media
-      = link_to (@user), :class => "pull-left" do 
-        %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
-      .media-body
-        %h4.media-heading 
-          = @user.name
-        %p.muted
-          = @user.email
+    .row
+      .span8
+        .media
+          = link_to (@user), :class => "pull-left" do 
+            %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
+          .media-body
+            %h4.media-heading 
+              = @user.name
+            %p.muted.quarter-margin-bottom
+              = @user.email
+            -if current_user
+              - unless current_user==(@user)
+                #follow_form
+                  - if current_user.following?(@user)
+                    = form_for(current_user.relationships.find_by_followed_id(@user), |
+                      html: { method: :delete }) do |f|                                |
+                      = f.submit "Unfollow", class: "btn"
+                  - else
+                    = form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
+                      %div= f.hidden_field :followed_id
+
+                      = f.submit "+ Follow", class: "btn btn-success"
+      .span4
+        =render"shared/stats"
       .clearfix
 
 .page-header
   %h5.no-margin-bottom
     Shots
 = render :partial => 'shared/shot_thumb', :locals => {:shots => @user_shots}
-
-.page-header
-  %h5.no-margin-bottom
-    Likes
-/ =@likes.inspect
-= render :partial => 'shared/shot_thumb', :locals => {:shots => @likes}
