@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 ruby '2.0.0'
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :production do
@@ -38,3 +38,4 @@ gem 'aws-sdk'
 gem 'acts-as-taggable-on'
 gem 'will_paginate', '~> 3.0.0'
 gem 'acts_as_votable', '~> 0.5.0'
+gem 'textacular', '~> 3.0'

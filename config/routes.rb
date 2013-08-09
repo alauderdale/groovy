@@ -23,5 +23,6 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   devise_for :rebounds
 
   resources :relationships, only: [:create, :destroy]
+  resources :search
   match ':controller(/:action(/:id))(.:format)'
 end
