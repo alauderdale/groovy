@@ -5,7 +5,7 @@
       .span8
         .media
           = link_to (@user), :class => "pull-left" do 
-            %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:thumb)}"}
+            %img.media-object.avatar-lg{:src => "#{@user.avatar.url(:medium)}"}
           .media-body
             %h4.media-heading 
               = @user.name
