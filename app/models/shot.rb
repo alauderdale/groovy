@@ -12,5 +12,5 @@ class Shot < ActiveRecord::Base
   acts_as_taggable
   acts_as_votable
   validates_attachment_size :audio, :less_than => 560760.bytes
-  self.per_page = 1
+  self.per_page = 12
 end
