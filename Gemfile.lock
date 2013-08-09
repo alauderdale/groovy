@@ -186,7 +186,8 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
+    textacular (3.1.0)
+      activerecord (>= 3.0, < 4.1)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -238,7 +239,7 @@ DEPENDENCIES
   rspec-rails (>= 2.12.2)
   sass-rails (~> 3.2.3)
   simple_form (>= 2.1.0)
-  sqlite3
+  textacular (~> 3.0)
   thin
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0.0)
