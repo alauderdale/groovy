@@ -6,12 +6,9 @@ class ShotsController < ApplicationController
         @shots = Shot.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC')
         @tag = params[:tag]
       else
-        # @shots = Shot.order().page(params[:page]).order('created_at DESC')
-        @shots = Shot.where(:user_id=>[*current_user.followed_users, current_user.id]).page(params[:page]).order('created_at DESC')
-        # To show followed users something like this
-        # @shots =  current_user.followed_users.each do |s|
-        #             s.shots.page(params[:page]).order('created_at DESC')
-        #           end
+        @shots = Shot.order().page(params[:page]).order('created_at DESC')
+        #following and current user shots
+        # @shots = Shot.where(:user_id=>[*current_user.followed_users, current_user.id]).page(params[:page]).order('created_at DESC')
       end
     else
       redirect_to root_path, :alert => "Create an account to view this section"

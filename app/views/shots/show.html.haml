@@ -14,7 +14,7 @@
     .margin-bottom
       .media
         = link_to (@shot.user), :class => "pull-left" do 
-          %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:thumb)}"}
+          %img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:medium)}"}
         .media-body.margin-bottom
           %h3.media-heading 
             = @shot.title
