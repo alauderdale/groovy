@@ -30,11 +30,13 @@
           %li
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'
       %li
-        = form_tag search_index_path, :method => 'get', :class=>"navbar-search" do
-          = text_field_tag :search, params[:search], :class=>"search-query" , :placeholder => "Search"
+        = render 'layouts/nav_search_field'
   - else
     %ul.nav
       %li
         = link_to 'Sign up', new_user_registration_path
       %li
         = link_to 'Login', new_user_session_path
+    %ul.nav.pull-right
+      %li
+        = render 'layouts/nav_search_field'
