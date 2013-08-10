@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 
 		s = Shot.basic_search(params[:search])
 		t = Shot.tagged_with(params[:search])
-		@shots= (s).page(params[:page]).order('created_at DESC')
+
 
 	end
 end
