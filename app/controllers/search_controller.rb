@@ -1,13 +1,9 @@
 class SearchController < ApplicationController
 	def index
-		@shots = Shot.basic_search(params[:search]).page(params[:page]).order('created_at DESC')
+
+		shots = Shot.basic_search(params[:search]) + Shot.tagged_with(params[:search])
 		@users = User.basic_search(params[:search])
-		# @shots = Shot.basic_search(params[:search])+Shot.tagged_with(params[:search]).page(params[:page]).order('created_at DESC')
 		@search = params[:search]
-
-		s = Shot.basic_search(params[:search])
-		t = Shot.tagged_with(params[:search])
-
-
+		@shots = shots.paginate page: params[:page] , per_page: 12
 	end
 end
