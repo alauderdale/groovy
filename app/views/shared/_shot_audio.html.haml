@@ -1,34 +1,88 @@
 :javascript
   $(document).ready(function(){
-
-    var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
-    {
-      m4a: "#{shot.audio.url}"
-    }, {
-      cssSelectorAncestor: "#cp_container_1",
+    $("#jquery_jplayer_1").jPlayer({
+      ready: function (event) {
+        $(this).jPlayer("setMedia", {
+          m4a:"#{shot.audio.url}"
+        });
+      },
       swfPath: "js",
+      supplied: "m4a",
       wmode: "window",
+      smoothPlayBar: true,
       keyEnabled: true
     });
-
   });
-.margin-bottom.left
-  #jquery_jplayer_1.cp-jplayer
-  / The container for the interface can go where you want to display it. Show and hide it as you need.
-  #cp_container_1.cp-container
-    .cp-buffer-holder
-      / .cp-gt50 only needed when buffer is > than 50%
-      .cp-buffer-1
-      .cp-buffer-2
-    .cp-progress-holder
-      / .cp-gt50 only needed when progress is > than 50%
-      .cp-progress-1
-      .cp-progress-2
-    .cp-circle-control
-    %ul.cp-controls
-      %li
-        %a.cp-play{:tabindex => "1"} play
-      %li
-        %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
-      / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
-.clearfix
+
+
+%section.player-container
+  .container
+    .row
+      .span12
+        #jquery_jplayer_1.jp-jplayer
+        #jp_container_1.jp-audio
+          .jp-type-single
+            .jp-gui.jp-interface
+              .row
+                .span2
+                  %ul.jp-controls.text-center
+                    %li
+                      %a.jp-play{:href => "javascript:;", :tabindex => "1"}
+                        %i.icon-play
+                    %li
+                      %a.jp-pause{:href => "javascript:;", :tabindex => "1"} 
+                        %i.icon-pause
+                .span10
+                  .jp-time-holder
+                    .pul-right
+                      =link_to shot.user do
+                        %p.pull-left.no-margin-bottom
+                          =shot.user.name
+                    .jp-current-time
+                    / .jp-duration
+                  .jp-title-guy
+                    %h3
+                      = shot.title
+                  .jp-progress
+                    .jp-seek-bar
+                      .jp-play-bar
+            .jp-no-solution
+              %span Update Required
+              To play the media you will need to either update your browser to a recent version or update your
+              = succeed "." do
+                %a{:href => "http://get.adobe.com/flashplayer/", :target => "_blank"} Flash plugin
+
+/ :javascript
+/   $(document).ready(function(){
+
+/     var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+/     {
+/       m4a: "#{shot.audio.url}"
+/     }, {
+/       cssSelectorAncestor: "#cp_container_1",
+/       swfPath: "js",
+/       wmode: "window",
+/       keyEnabled: true
+/     });
+
+/   });
+/ .margin-bottom.left
+/   #jquery_jplayer_1.cp-jplayer
+/   / The container for the interface can go where you want to display it. Show and hide it as you need.
+/   #cp_container_1.cp-container
+/     .cp-buffer-holder
+/       / .cp-gt50 only needed when buffer is > than 50%
+/       .cp-buffer-1
+/       .cp-buffer-2
+/     .cp-progress-holder
+/       / .cp-gt50 only needed when progress is > than 50%
+/       .cp-progress-1
+/       .cp-progress-2
+/     .cp-circle-control
+/     %ul.cp-controls
+/       %li
+/         %a.cp-play{:tabindex => "1"} play
+/       %li
+/         %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
+/       / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
+/ .clearfix
