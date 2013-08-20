@@ -7,26 +7,22 @@
   .container
     .row
       .span5
-        %h1
-          %i.icon-heart
-          =@shot.likes.count
-        %p
+        %p.no-margin-bottom
           -if @shot.description.blank?
             %span.muted
               No Description
           -else
             =@shot.description
-        - @shot.tag_list.map do |s|
-          =link_to (tag_path(s)) do
-            %span.label
-              %h3.no-margin-bottom
-                =s
-      .span6.offset1
-        = render :partial => 'shared/shot_controls', :locals => {:shot => @shot}
-%section.double-margin-bottom
-  .container
-    .row
-      .span5
+        .clearfix.margin-bottom
+        -if @shot.reverse_rebounds.count > 0
+          .well
+            %h5.no-margin-bottom
+              This shot is a rebound of
+            -@shot.reverse_rebounds.each do |r|
+              %h6.no-margin-bottom
+                = link_to (r.from_shot) do
+                  =r.from_shot.title
+        .clearfix
         .comments
           .page-header
             - if @shot.comments.count == 1
@@ -44,8 +40,9 @@
             = form_for([@shot, @shot.comments.build]) do |f|
               .field
                 = f.text_area :body, :rows => 9, :required => true, :style=>"width:100%;"
-              = submit_tag("Post comment", :class=>"btn btn-primary") 
-      .span7
+              = submit_tag("Post comment", :class=>"btn btn-primary")
+      .span6.offset1
+        = render :partial => 'shared/shot_controls', :locals => {:shot => @shot} 
        
 
 

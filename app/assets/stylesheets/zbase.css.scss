@@ -6,7 +6,7 @@ $baseline: 20px;
 
 //colors
 
-$primary-color:#fe4737;
+$primary-color:#ad143f;
 $black-color:#1e2021;
 $success-color:#8aba56;
 $warning-color:yellow;
@@ -31,10 +31,8 @@ $light-gray-color:#eee;
   height:auto;
   @include border-radius(3px);
 }
-
-.content {
-  padding: 18px;
-  margin: 0 -18px; /* negative indent the amount of the padding to maintain the grid system */
+.nav{
+  font-weight:bold;
 }
 
 
@@ -105,7 +103,7 @@ h6 {
 //likes
 
 .liked{
-  color:#f66c9f;
+  color:#f20044;
 }
 
 //margin helpers
@@ -298,20 +296,6 @@ a{
   @include transition-duration(.3s);
 }  
 
-.btn-primary{
-  background-color: $primary-color!important;
-}
-
-.btn-success{
-  background-color:$success-color!important;
-}   
-.btn-danger{
-  background-color:$success-color!important;
-} 
-.btn-warning{
-  background-color:$success-color!important;
-}   
-
 .btn:hover,
 .btn:focus,
 .btn:active,
@@ -333,6 +317,23 @@ a{
      -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
           box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+
+.btn-primary{
+  background-color: $primary-color!important;
+  &:hover{
+    background-color:shade($primary-color,20%)!important;
+  }
+}
+
+.btn-success{
+  background-color:$success-color!important;
+}   
+.btn-danger{
+  background-color:$success-color!important;
+} 
+.btn-warning{
+  background-color:$success-color!important;
+}  
 
 
 //footer
@@ -368,8 +369,9 @@ footer{
   }
   .nav_logo{
     background:image-url('logo.png') no-repeat left;
-    padding-left:45px!important;
     margin-left:$baseline/2;
+    width:91px;
+    text-indent:-9999px;
   }
 }
 
@@ -389,28 +391,13 @@ footer{
 .alert{
   padding-top:$baseline;
   padding-bottom:$baseline;
+  margin-bottom:0;
 }
 
 
 //shot
 
-ul.shot-controls{
-  li{
-    a{
-      background-color:$light-gray-color;
-      padding:$baseline;
-      color:#444!important;
-      @include border-radius(4px);
-      @include transition-duration(.3s);
 
-      float: left;
-      &:hover{
-        background-color:$black-color;
-        color:white!important;
-      }
-    }
-  }
-}
 
 //player overrides
 
@@ -421,9 +408,14 @@ ul.shot-controls{
 //player large
 
 section{
+
+  div.jp-audio div.jp-type-single div.jp-interface{
+    height:auto;
+  }
+
   &.player-container{
     background-color:$black-color;
-    padding:$baseline*3 0;
+    padding:$baseline*3 $baseline;
     .jp-audio{
       background:none;
       border:none;
@@ -455,11 +447,12 @@ section{
       background:none;
       @include linear-gradient(top, #fa2e69 0%,#fe4738 100%);
       box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
-      width:auto;
+      width:100%;
       height:auto;
       color:white!important;
       font-size:2.5em;
-      padding:$baseline*3;
+      padding:$baseline*3 0;
+      margin-bottom:$baseline;
     }
     div.jp-audio div.jp-type-single div.jp-time-holder{
       width:auto;

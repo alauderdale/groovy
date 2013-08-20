@@ -2,21 +2,22 @@
   %span.icon-bar
   %span.icon-bar
   %span.icon-bar
-= link_to 'PITCH', root_path, :class => 'brand nav_logo'
+= link_to '.', root_path, :class => 'brand nav_logo'
 .nav-collapse.collapse
   - if user_signed_in?
     %ul.nav
       %li.text-uppercase
-        = link_to 'Grooves', shots_path
-
-      - if current_user.has_role? :admin
-        %li
-          = link_to 'Admin', users_path
-    %ul.nav.pull-right
+        = link_to 'Klips', shots_path
       %li
         %a.text-uppercase{:href=>"#{new_shot_path}"}
           %i.icon-upload.icon-white
           Upload
+
+      - if current_user.has_role? :admin
+        %li
+          = link_to 'Admin', users_path
+
+    %ul.nav.pull-right
       %li.dropdown
         %a{:href=>"#",:class=>"dropdown-toggle", :'data-toggle'=>"dropdown"}
           %img.avatar-sm{:src=>"#{current_user.avatar.url(:thumb)}"}
