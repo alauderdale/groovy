@@ -1,14 +1,17 @@
+
+
 @import"bourbon";
 
 $baseline: 20px;
 
 //colors
 
-$primary-color:#e06900;
+$primary-color:#ad143f;
 $black-color:#1e2021;
 $success-color:#8aba56;
 $warning-color:yellow;
 $erroe-color:red;
+$light-gray-color:#eee;
 
 //nav
 .avatar-sm{
@@ -18,19 +21,18 @@ $erroe-color:red;
   @include border-radius(3px);
 }
 .avatar-med{
-  width: 40px;
+  width: 60px;
   height:auto;
-  @include border-radius(3px);
+  border:3px solid #bbb;
+  @include border-radius(200px);
 }
 .avatar-lg{
   width: 88px;
   height:auto;
   @include border-radius(3px);
 }
-
-.content {
-  padding: 18px;
-  margin: 0 -18px; /* negative indent the amount of the padding to maintain the grid system */
+.nav{
+  font-weight:bold;
 }
 
 
@@ -101,7 +103,7 @@ h6 {
 //likes
 
 .liked{
-  color:#f66c9f;
+  color:#f20044;
 }
 
 //margin helpers
@@ -294,20 +296,6 @@ a{
   @include transition-duration(.3s);
 }  
 
-.btn-primary{
-  background-color: $black-color!important;
-}
-
-.btn-success{
-  background-color:$success-color!important;
-}   
-.btn-danger{
-  background-color:$success-color!important;
-} 
-.btn-warning{
-  background-color:$success-color!important;
-}   
-
 .btn:hover,
 .btn:focus,
 .btn:active,
@@ -329,6 +317,23 @@ a{
      -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
           box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+
+.btn-primary{
+  background-color: $primary-color!important;
+  &:hover{
+    background-color:shade($primary-color,20%)!important;
+  }
+}
+
+.btn-success{
+  background-color:$success-color!important;
+}   
+.btn-danger{
+  background-color:$success-color!important;
+} 
+.btn-warning{
+  background-color:$success-color!important;
+}  
 
 
 //footer
@@ -364,8 +369,9 @@ footer{
   }
   .nav_logo{
     background:image-url('logo.png') no-repeat left;
-    padding-left:45px!important;
     margin-left:$baseline/2;
+    width:91px;
+    text-indent:-9999px;
   }
 }
 
@@ -385,16 +391,101 @@ footer{
 .alert{
   padding-top:$baseline;
   padding-bottom:$baseline;
+  margin-bottom:0;
 }
+
+
+//shot
+
 
 
 //player overrides
 
-.cp-container {
-  padding-left:4px;
-  padding-bottom:$baseline!important;
-  background-position-x: -49px!important;
-  padding-left: 0!important;
-  padding-top: 0!important;
-  background-position-y: -49px!important;
+
+
+
+
+//player large
+
+section{
+
+  div.jp-audio div.jp-type-single div.jp-interface{
+    height:auto;
+  }
+
+  &.player-container{
+    background-color:$black-color;
+    padding:$baseline*3 $baseline;
+    .jp-audio{
+      background:none;
+      border:none;
+      width:auto;
+      line-height:$baseline;
+    }
+    .jp-interface  {
+      background:none;
+    }
+    div.jp-audio div.jp-type-single div.jp-progress{
+      width:100%;
+      left:0px;
+      position:relative;
+      top:0;
+    }
+    div.jp-audio ul.jp-controls {
+      padding:0;
+      width:auto;
+      li{
+        float: none;
+      }
+    }
+    div.jp-interface ul.jp-controls a{
+      text-align:center;
+      text-indent:0;
+      display:inline-block;
+    }
+    a.jp-play, a.jp-pause{
+      background:none;
+      @include linear-gradient(top, #fa2e69 0%,#fe4738 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
+      width:100%;
+      height:auto;
+      color:white!important;
+      font-size:2.5em;
+      padding:$baseline*3 0;
+      margin-bottom:$baseline;
+    }
+    div.jp-audio div.jp-type-single div.jp-time-holder{
+      width:auto;
+      position:relative;
+      top:0;
+      left:0;
+      margin-bottom:$baseline/2;
+      color:white!important;
+      width:100%;
+      display:inline-block;
+      a{
+        color:white!important;
+      }
+    }
+    div.jp-current-time {
+      float:right;
+      text-align:right;
+      width:auto;
+    }
+    .jp-title-guy{
+      color:white;
+    }
+    .jp-progress{
+      height:30px!important;
+      background:none;
+      .jp-seek-bar{
+        background:none;
+        background-color:rgba(255,255,255,.3);
+      }
+      .jp-play-bar{
+        background:none;
+        background-color:white;
+      }
+    }
+  }
 }

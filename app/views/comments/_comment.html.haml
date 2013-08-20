@@ -1,12 +1,12 @@
 .media.margin-bottom
   = link_to (comment.user), :class => "pull-left" do 
-    %img.media-object.avatar-med{:src => "#{comment.user.avatar.url(:thumb)}"}
+    %img.media-object.avatar-med.margin-right{:src => "#{comment.user.avatar.url(:medium)}"}
   .media-body.margin-bottome
-    %p.no-margin-bottom
+    %p.half-margin-bottom
       %strong
         = link_to (comment.user) do
           = comment.user.name
-    %p.no-margin-bottom
+    %p.half-margin-bottom
       = h(comment.body)
     %p.muted
       %small
