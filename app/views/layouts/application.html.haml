@@ -15,11 +15,8 @@
           = render 'layouts/navigation'
     #main{:role => "main"}
       = render 'layouts/messages'
-      .container.double-margin-top
-        .content
-          .row
-            .span12
-              = yield
+      .container
+      = yield
       %footer.footer
         .container
           = render 'layouts/footer'
