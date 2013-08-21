@@ -410,8 +410,14 @@ footer{
 
 //player thumb
 
+
 .cp-container{
-  margin-left:-54px;
+  margin-left:-$baseline*2;
+  background:image-url('bar.png') 0 0 no-repeat;
+}
+
+.cp-controls .cp-play, .cp-controls .cp-play:hover,.cp-controls .cp-pause, .cp-controls .cp-pause:hover {
+  background-image:image-url("controls.png");
 }
 
 

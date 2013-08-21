@@ -18,22 +18,23 @@
       .left
         %div{:id=>"jquery_jplayer_#{c.id}", :class=>"cp-jplayer"}
         / The container for the interface can go where you want to display it. Show and hide it as you need.
-        %div{:id=>"cp_container_#{c.id}", :class=>"cp-container"}
-          .cp-buffer-holder
-            / .cp-gt50 only needed when buffer is > than 50%
-            .cp-buffer-1
-            .cp-buffer-2
-          .cp-progress-holder
-            / .cp-gt50 only needed when progress is > than 50%
-            .cp-progress-1
-            .cp-progress-2
-          .cp-circle-control
-          %ul.cp-controls
-            %li
-              %a.cp-play{:tabindex => "1"} play
-            %li
-              %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
-            / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
+        .icon
+          %div{:id=>"cp_container_#{c.id}", :class=>"cp-container"}
+            .cp-buffer-holder
+              / .cp-gt50 only needed when buffer is > than 50%
+              .cp-buffer-1
+              .cp-buffer-2
+            .cp-progress-holder
+              / .cp-gt50 only needed when progress is > than 50%
+              .cp-progress-1
+              .cp-progress-2
+            .cp-circle-control
+            %ul.cp-controls
+              %li
+                %a.cp-play{:tabindex => "1"} play
+              %li
+                %a.cp-pause{:style => "display:none;", :tabindex => "1"} pause
+              / Needs the inline style here, or jQuery.show() uses display:inline instead of display:block
       .clearfix
     .half-margin-bottom
       %img.avatar-sm{:src=>"#{c.user.avatar.url(:thumb)}"}
