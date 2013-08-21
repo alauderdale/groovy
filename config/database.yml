@@ -1,25 +1,27 @@
+# createuser -s -r postgres
+
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: klipz_development
   pool: 5
-  username: alauderdale
+  username: postgres
   password: 
 
 test: &TEST
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: klipz_test
   pool: 5
-  username: alauderdale
+  username: postgres
   password: 
 
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: klipz_production
   pool: 5
-  username: alauderdale
+  username: postgres
   password: 
 
 cucumber:
