@@ -9,6 +9,7 @@ class Shot < ActiveRecord::Base
                     :url => "/assets/:class/:id/:attachment/:style.:extension",
                     :path => ":rails_root/public/assets/:class/:id/:attachment/:style.:extension"
   validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/x-m4a' ]
+  has_attached_file :shot_image, :styles => { :medium => "88x88#", :thumb => "16x16#" }, :default_url => "/images/:style/missing_avatar.png"
   acts_as_taggable
   acts_as_votable
   validates_attachment_size :audio, :less_than => 560760.bytes

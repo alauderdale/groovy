@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731044140) do
+ActiveRecord::Schema.define(:version => 20130927063540) do
 
   create_table "comments", :force => true do |t|
     t.string   "body"
@@ -54,12 +54,16 @@ ActiveRecord::Schema.define(:version => 20130731044140) do
     t.string   "title"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "audio_file_name"
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.string   "shot_image_file_name"
+    t.string   "shot_image_content_type"
+    t.integer  "shot_image_file_size"
+    t.datetime "shot_image_updated_at"
   end
 
   create_table "taggings", :force => true do |t|
