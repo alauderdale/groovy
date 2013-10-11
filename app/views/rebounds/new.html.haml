@@ -3,7 +3,8 @@
 	.row
 		.span12
 			%h1
-				New Rebound
+				New rebound of
+				= @from_shot.title
 			= form_for(:shot, :url => {:action => 'create', :id => @from_shot.id}, :html => { :multipart => true }) do |f| 
 				= render(:partial => 'form', :locals => {:f => f})
 				.form-buttons
