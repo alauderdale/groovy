@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   acts_as_voter
+  self.per_page = 12
 
 
   def following?(other_user)

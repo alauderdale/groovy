@@ -5,13 +5,18 @@
         %h2.margin-bottom
           Welcome to KLIPZ
         %p
-          A musical collaboration community with a simple goal, to connect musical ideas and people 
+          A musical collaboration community with a simple goal, to connect musical ideas and people in 30 seconds or less.
         .btn-group
           %a.btn.btn-large.btn-primary{:href=>"#{new_user_registration_path}"}
             Sign Up
         .btn-group
           = link_to (new_user_session_path) , :class=>'btn btn-large' do
             Login
+      .row
+        .span12
+          .page-header
+            %h3.no-margin-bottom
+              Popular
       .row
       -@shots.in_groups_of(4,false) do |s|
         .row
