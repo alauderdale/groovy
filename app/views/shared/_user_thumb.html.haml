@@ -1,0 +1,10 @@
+.media
+  = link_to (u), :class => "pull-left" do 
+    %img.media-object.avatar-lg{:src => "#{u.avatar.url(:medium)}"}
+  .media-body
+    %h4.media-heading 
+      = u.name
+    %p.muted.quarter-margin-bottom
+      = u.email
+      = u.shots.count
+      shots
