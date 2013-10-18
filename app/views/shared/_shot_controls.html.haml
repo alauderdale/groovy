@@ -2,7 +2,7 @@
   .page-header.no-margin-bottom.half-margin-top
     = link_to(new_shot_rebound_path(shot.id, :id => shot.id))do
       %i.icon-circle-arrow-right 
-      Rebund
+      Rebound
     .pull-right
       -if @shot.rebounds.count > 0
         = link_to(shot_rebound_path(@shot, :id => @shot.id)) do
