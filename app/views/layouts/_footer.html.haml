@@ -1,3 +1,34 @@
 /footer
+.container
+	.row
+		.span12
+			.row
+				.span4
+					=image_tag("", :class => "img-rounded", :width => 90 , :height => 120)
+					%p
+						Social Composing
 
-	
+				.span4
+					%h3.strong
+						Company
+					%a{ :href => "about", :title => "About Us" }
+						%strong
+							About us
+						%p
+							Contact
+						
+				.span4
+					%h3
+						Other Stuff
+	.row
+		.span12
+			Copyright ©
+			2013 - 
+			=Time.now.year
+			Klip Collective. All Klipz © there respective owners.
+	.row
+		.span12
+			%strong
+				%a.twitter-share-button{"data-related" => "YourUserNameOnTwitter", "data-size" => "large", "data-text" => "Social Composing with Klipz, Check it out www.Klipcollective.com!", "data-via" => "YourUserNameOnTWitter", :href => "https://twitter.com/share"} Tweet
+
+				%a.fb-like{"data-action" => "like", "data-colorscheme" => "light", "data-layout" => "standard", "data-send" => "false", "data-show-faces" => "false", "data-width" => "450", :href=>"#"} Like us
