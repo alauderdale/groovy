@@ -25,4 +25,5 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :search
   match ':controller(/:action(/:id))(.:format)'
+  match 'site/about', to: 'site#about'
 end

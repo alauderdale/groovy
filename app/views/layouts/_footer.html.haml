@@ -1,59 +1,32 @@
 /footer
-.container
-	.row
-		.span12
-			.row
-				.span4
-					=image_tag("logo.png", :class => "img" , :width => 90 , :height => 120)
-					%p
-						Social Composing
-					%br
-					%h3.text-left
-						Whats your inspiration?
-
-				.span4
-					%h3
-						%strong
+%footer.footer
+	.container
+		.row
+			.span12
+				.row
+					.span4
+						=image_tag("logo.png", :class => "img" , :width => 90 , :height => 120)
+						%p
+							Social Composing
+						%p.muted
+							Klipz is intended for people like you, to enable you to receive motivation and inspiration from the Klipz community. We hope you enjoy sharing your Klipz and make better music everyday because of it.
+					.span4
+						%h5
 							Company
-					%a{ :href => "site/about", :title => "About" }
-
-						%p
-							About
-					%a{ :href => "mailto: klipcollectiveinc@gmail.com", :title => "Feedback"}
-
-						%p
-							Feedback? Click Here!
-						
-
-						
-				.span4
-					%h3
-						%strong
-							Resources
-
-					%a{ :href => "", :title => "" }
-						%p
-							Link 1
-
-					%a{ :href => "", :title => "" }
-
-						%p
-							Link 2
-
-					%a{ :href => "", :title => "" }
-							
-						%p
-							Link 3
-.container
-	.row
-		.span12
-			Copyright ©
-			2013 - 
-			=Time.now.year
-			Klip Collective. All Klipz © there respective owners.
-	.row
-		.span12
-			%strong
-				%a.twitter-share-button{"data-related" => "YourUserNameOnTwitter", "data-size" => "large", "data-text" => "Social Composing with Klipz, Check it out www.Klipcollective.com!", "data-via" => "YourUserNameOnTWitter", :href => "https://twitter.com/share"} Tweet
-
-				%a.fb-like{"data-action" => "like", "data-colorscheme" => "light", "data-layout" => "standard", "data-send" => "false", "data-show-faces" => "false", "data-width" => "450", :href=>"#"} Like us
+						%ul.unstyled.no-margin-top
+							%li
+								%a{ :href => "/site/about"}
+									About
+							%li
+								%a{ :href => "mailto: klipcollectiveinc@gmail.com"}
+									Feedback? 
+					.span4
+.sub-footer
+	.container
+		.row
+			.span12
+				%p.text-center
+					Copyright ©
+					2013 - 
+					=Time.now.year
+					Klip Collective. All Klipz © there respective owners.

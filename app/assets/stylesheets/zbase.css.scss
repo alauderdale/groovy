@@ -343,15 +343,19 @@ footer{
   background-color:#f2f2f2;
   border-top:1px solid #ddd;
   color:#666;
-  &.footer{
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   a{
     color:#333!important;
   }
+}
+
+.sub-footer{
+  background-color:$black-color;
+  p{
+    color:white;
+    margin:0;
+  }
+  padding:$baseline*2;
+  margin-left: -20px;
 }
 
 
