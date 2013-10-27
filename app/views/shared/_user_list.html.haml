@@ -14,11 +14,11 @@
 							= user.followers.count
 							Followers
 		.span6
-			.double-margin-bottom
-				%h3
-					Recent Klipz
+			.double-margin-bottom.border-left.padding-left
 				-if user.shots.count == 0
 					%p.muted
 						No Klipz yet...
 				-user.shots.limit(3).each do |u|
 					= render :partial => "shared/shot_list", :locals => {:c => u} 
+				=link_to user do
+					View more

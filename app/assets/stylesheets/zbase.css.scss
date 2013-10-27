@@ -8,6 +8,7 @@ $baseline: 20px;
 
 $primary-color:#ad143f;
 $black-color:#1e2021;
+$link-color:#1e2021;
 $success-color:#8aba56;
 $warning-color:yellow;
 $erroe-color:red;
@@ -104,6 +105,12 @@ h6 {
 
 .liked{
   color:#f20044;
+}
+
+//borders
+
+.border-left{
+  border-left:1px solid $light-gray-color;
 }
 
 //margin helpers
@@ -285,7 +292,7 @@ h6 {
 //links
 
 a{
-  color:$black-color!important;
+  color:$link-color!important;
   &:hover{
     color:tint($black-color, 35%)!important;
     text-decoration:none!important;
