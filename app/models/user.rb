@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :avatar
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :avatar, :bio
   has_attached_file :avatar, :styles => { :medium => "88x88#", :thumb => "16x16#" }, :default_url => "/images/:style/missing_avatar.png"
   has_many :shots, dependent: :destroy
   has_many :comments, dependent: :destroy

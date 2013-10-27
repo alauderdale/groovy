@@ -1,7 +1,7 @@
 .page-header
 	.row
 		.span6
-			.media
+			.media.margin-bottom
 				=link_to user, :class=>"pull-left" do
 					%img.avatar-lg{:src=>"#{user.avatar.url(:medium)}"}
 				.media-body
@@ -13,12 +13,16 @@
 							shots
 							= user.followers.count
 							Followers
+			%p.muted
+				=user.bio
 		.span6
 			.double-margin-bottom.border-left.padding-left
 				-if user.shots.count == 0
 					%p.muted
 						No Klipz yet...
-				-user.shots.limit(3).each do |u|
-					= render :partial => "shared/shot_list", :locals => {:c => u} 
-				=link_to user do
-					View more
+				-else
+					-user.shots.limit(3).each do |u|
+						= render :partial => "shared/shot_list", :locals => {:c => u} 
+					-if user.shots.count > 3
+						=link_to user do
+							View more

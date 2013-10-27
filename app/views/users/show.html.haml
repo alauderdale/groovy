@@ -24,6 +24,8 @@
                           %div= f.hidden_field :followed_id
 
                           = f.submit "+ Follow", class: "btn btn-success"
+            %p.muted
+              =@user.bio
           .span4
             =render"shared/stats"
           .clearfix

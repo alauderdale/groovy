@@ -29,7 +29,7 @@
           .jp-gui.jp-interface
             .page-header.no-margin-top
               .media
-                .pull-left.margin-right
+                .pull-left
                   %ul.jp-controls.margin-bottom
                     %li
                       %a.jp-play{href: "javascript:;", tabindex: "1"}
@@ -38,12 +38,13 @@
                       %a.jp-pause{href: "javascript:;", tabindex: "1"} 
                         %i.icon-pause
                 .media-body
-                  =link_to c do
-                    %small
-                      =c.title
-                  .jp-time-holder
-                    .jp-current-time
+                  .margin-left
+                    =link_to c do
+                      %small
+                        =c.title
+                    .jp-time-holder
+                      .jp-current-time
 
-                  .jp-progress
-                    .jp-seek-bar
-                      .jp-play-bar
+                    .jp-progress
+                      .jp-seek-bar
+                        .jp-play-bar
