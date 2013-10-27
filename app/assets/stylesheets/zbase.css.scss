@@ -543,7 +543,7 @@ section{
   .jp-controls{
     width:auto!important;
     float: left!important;
-    padding:0!important;
+    padding:0 0px 0px 0!important;
   }
   .jp-interface{
     height:auto!important;
@@ -554,6 +554,19 @@ section{
   }
   .jp-current-time{
     width:100%;
-    text-align:right;
+    text-align:left;
   }
+  a.jp-play, a.jp-pause{
+      background:none;
+      @include linear-gradient(top, #fa2e69 0%,#fe4738 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
+      color:white!important;
+      font-size:2.5em;
+      width:auto!important;
+      height:auto;
+      padding:$baseline $baseline*1.5;
+      margin-bottom:$baseline;
+      text-indent:0!important;
+      font-size:8pt;
+    }
 }
