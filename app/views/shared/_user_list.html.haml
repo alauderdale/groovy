@@ -21,7 +21,7 @@
 					%p.muted
 						No Klipz yet...
 				-else
-					-user.shots.limit(3).each do |u|
+					-user.shots.limit(3).order("created_at DESC").each do |u|
 						= render :partial => "shared/shot_list", :locals => {:c => u} 
 					-if user.shots.count > 3
 						=link_to user do
