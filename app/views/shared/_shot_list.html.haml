@@ -1,0 +1,44 @@
+.shot-list
+  .no-margin-bottom
+    :javascript
+      $(document).ready(function(){
+            $("#jquery_jplayer_#{c.id}").jPlayer({
+              ready: function () {
+                $(this).jPlayer("setMedia", {
+                  m4a: "#{c.audio.url}"
+                });
+              },
+              swfPath: "js",
+              supplied: "m4a",
+              cssSelectorAncestor: "#jp_container_#{c.id}",
+              wmode: "window",
+              smoothPlayBar: true,
+              keyEnabled: true
+            });
+
+      });
+
+
+    %div
+      %div{:id=>"jquery_jplayer_#{c.id}", :class=>"jp-jplayer"}
+      %div{:id=>"jp_container_#{c.id}", :class=>"jp-audio"}
+        .jp-type-single
+          .jp-gui.jp-interface
+            .row
+              .span1
+                %ul.jp-controls
+                  %li
+                    %a.jp-play{href: "javascript:;", tabindex: "1"} play
+                  %li
+                    %a.jp-pause{href: "javascript:;", tabindex: "1"} pause
+              .span5
+                %p
+                  %small
+                    =c.title
+              .span4
+                .jp-progress
+                  .jp-seek-bar
+                    .jp-play-bar
+              .span2
+                .jp-time-holder
+                  .jp-current-time.pull-right

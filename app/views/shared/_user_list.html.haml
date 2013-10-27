@@ -1,12 +1,19 @@
-.media.double-margin-bottom
-	=link_to user, :class=>"pull-left" do
-		%img.avatar-lg{:src=>"#{user.avatar.url(:medium)}"}
-	.media-body
-		=link_to user do
-			%h3.media-heading 
-				=user.name
-			%p
-				= user.shots.count
-				shots
-				= user.followers.count
-				Followers
+.triple-margin-bottom.full-width.inline-block
+	.page-header
+		.media
+			=link_to user, :class=>"pull-left" do
+				%img.avatar-lg{:src=>"#{user.avatar.url(:medium)}"}
+			.media-body
+				=link_to user do
+					%h3.media-heading 
+						=user.name
+					%p
+						= user.shots.count
+						shots
+						= user.followers.count
+						Followers
+	.double-margin-bottom
+		-user.shots.limit(3).each do |u|
+			.row
+				.span12
+					= render :partial => "shared/shot_list", :locals => {:c => u} 

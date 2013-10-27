@@ -142,6 +142,19 @@ h6 {
     margin-left:$baseline*2!important;
 }
 
+.triple-margin-top{
+    margin-top:$baseline*3!important;
+}
+.triple-margin-right{
+    margin-right:$baseline*3!important;
+}
+.triple-margin-bottom{
+    margin-bottom:$baseline*3!important;
+}
+.triple-margin-left{
+    margin-left:$baseline*3!important;
+}
+
 .half-margin-top{
     margin-top:$baseline/2!important;
 }
@@ -508,5 +521,39 @@ section{
         background-color:white;
       }
     }
+  }
+}
+
+
+///player list
+
+.shot-list{
+  .jp-time-holder{
+    position:static!important;
+    width:100%!important;
+  }
+  .jp-audio{
+    width:100%;
+    border:none;
+    background:none!important;
+  }
+  .jp-interface{
+    background:none!important;
+  }
+  .jp-controls{
+    width:auto!important;
+    float: left!important;
+    padding:0!important;
+  }
+  .jp-interface{
+    height:auto!important;
+  }
+  .jp-progress{
+    position:static!important;
+    width:100%!important;
+  }
+  .jp-current-time{
+    width:100%;
+    text-align:right;
   }
 }

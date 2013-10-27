@@ -4,8 +4,7 @@
       .page-header
         %h3.no-margin-bottom
           Artists
-  .row
-    .span12
-      -@users.each do |u|
-        = render :partial => "shared/user_thumb", :locals => {:u => u} 
-      = will_paginate @users 
+      .row
+        .span12
+          -@users.each do |u|
+            = render :partial => "shared/user_list", :locals => {:user => u} 
