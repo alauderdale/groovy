@@ -16,9 +16,9 @@
 		.span6
 			.double-margin-bottom
 				%h3
-					Recent Klips
+					Recent Klipz
 				-if user.shots.count == 0
 					%p.muted
-						No Klips
+						No Klipz yet...
 				-user.shots.limit(3).each do |u|
 					= render :partial => "shared/shot_list", :locals => {:c => u} 
