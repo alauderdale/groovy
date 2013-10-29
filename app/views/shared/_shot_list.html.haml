@@ -19,9 +19,7 @@
               keyEnabled: true
             });
 
-      });
-
-
+        });
     %div
       %div{:id=>"jquery_jplayer_#{c.id}", :class=>"jp-jplayer"}
       %div{:id=>"jp_container_#{c.id}", :class=>"jp-audio"}
@@ -30,7 +28,7 @@
             .page-header.no-margin-top
               .media
                 .pull-left
-                  %ul.jp-controls.margin-bottom
+                  %ul.jp-controls
                     %li
                       %a.jp-play{href: "javascript:;", tabindex: "1"}
                         %i.icon-play
@@ -48,3 +46,4 @@
                     .jp-progress
                       .jp-seek-bar
                         .jp-play-bar
+              = render :partial => "shared/shot_meta", :locals => {:c => c} 
