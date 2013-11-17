@@ -58,7 +58,11 @@
         %i.icon-heart
         = c.likes.size
     -if c.reverse_rebounds.count == 1
-      %i.icon-circle-arrow-right 
+      %br
+      %p.half-margin-top
+        %i.icon-circle-arrow-right 
+        This Shot is a rebound
+
     / %i.icon-flag
     / = c.audio_file_size/8692
     / seconds

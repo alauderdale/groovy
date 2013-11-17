@@ -4,7 +4,7 @@
 			.margin-bottom
 				.media
 					= link_to (@shot.user), :class => "pull-left" do 
-						%img.media-object.avatar-lg{:src => "#{@shot.user.avatar.url(:medium)}"}
+						%img.media-object.avatar-md{:src => "#{@shot.user.avatar.url(:medium)}"}
 					.media-body.margin-bottom
 						= link_to (@shot) do
 							%h3.media-heading 
@@ -16,10 +16,13 @@
 							= @shot.created_at.strftime("%B %d, %Y")
 						.clearfix
 		.span6
-			= render :partial => 'shared/shot_audio', :locals => {:shot => @shot}
+			= render :partial => 'shared/shot_list', :locals => {:c => @shot}
 	%h5
 		=@shot.rebounds.count
-		Rebounds
+		-if @shot.rebounds.count == 1
+			Rebound
+		-else
+			Rebounds
 	%hr
 	-@rebounds.in_groups_of(4,false) do |s|
 		.row
