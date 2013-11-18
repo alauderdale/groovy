@@ -2,7 +2,7 @@
 	.row
 		.span12
 			%h1
-				New rebound of
+				New rebound of:
 			= render :partial => "shared/shot_list", :locals => {:c => @from_shot} 
 			= form_for(:shot, :url => {:action => 'create', :id => @from_shot.id}, :html => { :multipart => true }) do |f| 
 				= render(:partial => 'form', :locals => {:f => f})

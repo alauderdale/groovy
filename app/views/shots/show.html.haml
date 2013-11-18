@@ -16,12 +16,12 @@
         .clearfix.margin-bottom
         -if @shot.reverse_rebounds.count > 0
           .well
-            %h5.no-margin-bottom
+            %h5
               This shot is a rebound of
             -@shot.reverse_rebounds.each do |r|
-              %h6.no-margin-bottom
-                = link_to (r.from_shot) do
-                  =r.from_shot.title
+              = render :partial => 'shared/shot_list', :locals => {:c => r.from_shot} 
+              = link_to (r.from_shot) do
+                View Klip
         .clearfix
         .comments
           .page-header
@@ -42,7 +42,19 @@
                 = f.text_area :body, :rows => 9, :required => true, :style=>"width:100%;"
               = submit_tag("Post comment", :class=>"btn btn-primary")
       .span6.offset1
+        .page-header
+          %h3
+            Info
         = render :partial => 'shared/shot_controls', :locals => {:shot => @shot} 
+        -if @shot.rebounds.count > 0
+          .page-header
+            %h3
+              Recent Rebounds
+          -@shot.shots.limit(2).order("created_at DESC").each do |rebound|
+            = render :partial => 'shared/shot_list', :locals => {:c => rebound} 
+            = link_to(shot_rebound_path(@shot, :id => @shot.id)) do
+              View all
+
        
 
 / Delete Modal
